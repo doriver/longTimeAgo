@@ -18,7 +18,7 @@
 	String heightString = request.getParameter("height");
 	String weightString = request.getParameter("weight");
 	int height = Integer.parseInt(heightString);
-	int weight = Integer.parseInt(weightString);
+	int weight = Integer.parseInt(weightString); // Integer.parseInt이게 double로 받아도 되는듯?
 	double bmi = weight / ((height / 100.0) * (height / 100.0));
 	
 	String text = null;
@@ -34,7 +34,7 @@
 	%>
 	<h3>BMI측정 결과</h3>
 	<div class="display-4">
-	당신은 <%=text%> 입니다. 
+	당신은 <span class="text-info"><%=text%></span> 입니다. 
 	</div>
 	<small>BMI수치: </small> <%=bmi %>
 

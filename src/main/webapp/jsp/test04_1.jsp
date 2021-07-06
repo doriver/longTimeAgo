@@ -5,23 +5,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <!-- bootstrap CDN link -->
+ <!-- bootstrap CDN link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<div class="container">
-		<h1>체격 조건 입력</h1>
-		<form method="get" action="/jsp/test03_2.jsp">
+		<form method="post" action="/jsp/test04_2.jsp">
 			<div class="d-flex">
-				<input type="text" class="form-control" name="height"><span>cm</span>
-				<input type="text" class="form-control" name="weight"><span>kg</span>
+				<input type="text" class="form-control col-3" name="number1"> 			
+				<select name="calculation" class="form-control col-1">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="x">x</option>
+					<option value="/">/</option>
+				</select>
+				<input type="text" class="form-control col-3" name="number2"> 
+				<input type="submit" value="계산">
 			</div>
-			<input type="submit" class="form-control btn btn-success" value="계산">
-		</form>
+		</form>	
 	</div>
+
 </body>
 </html>
