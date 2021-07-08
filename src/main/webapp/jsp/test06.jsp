@@ -16,20 +16,23 @@
 	
 	<h3>장 목록</h3>
 	<table>
-		<tr>
-			<td>번호</td>
-			<td>품목</td>
-		</tr>
-		<%
-		for (int i = 0; i < goodsList.size(); i++) { %>
-		<tr>
-			<td><%=i+1 %></td>
-			<td><%=goodsList.get(i) %></td>
-		</tr>
-		<%
-		}
-		%>
-	
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>품목</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			for (int i = 0; i < goodsList.size(); i++) { %>
+			<tr>
+				<td><%=i+1 %></td>
+				<td><%=goodsList.get(i) %></td>
+			</tr>
+			<%
+			}
+			%>		
+		</tbody>
 	</table>
 
 </body>
