@@ -19,6 +19,8 @@
 		out.println(format.format(today.getTime()) + "<br>");
 		
 		//어제 날짜 출력
+		
+		/*
 		today.add(Calendar.DATE, -100);
 		out.println(format.format(today.getTime()) + "<br>");
 		
@@ -27,6 +29,29 @@
 		
 		today.add(Calendar.YEAR, -6);
 		out.println(format.format(today.getTime()) + "<br>");
+		*/
+		
+		// calendar로 정보 얻기
+		int weeks = today.get(Calendar.WEEK_OF_YEAR);
+		out.println(weeks);
+		
+		int day = today.get(Calendar.DAY_OF_WEEK);
+		out.println(day);
+		
+		// 날짜 비교
+		Calendar otherDay = Calendar.getInstance();
+		otherDay.add(Calendar.DATE, -354);
+		
+		int result = today.compareTo(otherDay);
+		out.println(result); // 앞의 객체가 더크면1, 같으면0, 작으면-1
+		
+		if (result > 0) {
+			out.println("앞 객체가 더 크다");
+		} else if (result < 0) {
+			out.println("뒤 객체가 더 크다");
+		} else {
+			out.println("두 날짜가 같다");
+		}
 	%>
 
 </body>
