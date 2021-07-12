@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,52 +12,40 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	<style>
+		#wrap {width:1200px; height:800px; margin:auto}
+		nav {height:50px}
+		header {height:80px}
+		section {height:400px}
+		footer {height:80px}
+	</style>
 </head>
 <body>
-<% //asdfas
-Calendar cal = Calendar.getInstance();
-SimpleDateFormat yearMonth = new SimpleDateFormat("yyyy-MM");
-SimpleDateFormat day = new SimpleDateFormat("d");
-
-%>
-	<div class="container">
-		<h3><%=yearMonth.format(cal.getTime())%></h3>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>일</th>
-					<th>월</th>
-					<th>화</th>
-					<th>수</th>
-					<th>목</th>
-					<th>금</th>
-					<th>토</th>
-				</tr>
-			</thead>
-			<tbody>
-<%
-cal.set(Calendar.DAY_OF_MONTH,1);
-int firstDay = cal.get(Calendar.DAY_OF_WEEK);
-%>
-				<tr>
-					<%
-					for (int i = 0; i < 4; i++) {%>
-						<td></td>						
-					<%	
-					}
-					%>
-					<%
-					for (int i = 0; i < 4; i++) {%>
-						<td></td>						
-					<%	
-					}
-					%>
-					
-				</tr>
-			</tbody>
-		</table>
+	<div id="wrap" >
+		
+		<header >
+			<h1>layout test</h1>
+		</header>
+		
+		<nav>
+			<ul class="nav">
+				<li class="nav-item"><a href="#" class="nav-link">메뉴1</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">메뉴2</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">메뉴3</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">메뉴4</a></li>
+			</ul>
+		</nav>
+		
+		<section>
+			<img width="400" src="https://cdn.pixabay.com/photo/2021/05/26/22/33/daisies-6286585_960_720.jpg">
+			<div>
+				예쁜 풍경사진
+			</div>
+		</section>
+		
+		<footer >
+			저작권 있음. 유의 부탁 
+		</footer>
 	</div>
-
-
 </body>
 </html>
