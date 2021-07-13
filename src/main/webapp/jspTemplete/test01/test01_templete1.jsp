@@ -79,7 +79,8 @@
 <%
 	String category = request.getParameter("category");
 	for (Map<String, String> info : list) {
-		if (info.get("category").equals(category)) {
+		if (category == null ||
+				info.get("category").equals(category)) {
 	%>
 					<tr>
 						<td><%=info.get("ch") %></td>

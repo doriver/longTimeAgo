@@ -76,14 +76,14 @@
 					</tr>
 				</thead>
 				<tbody>
-<%
+<% // 이건 쌤 의도랑은 다른풀이 , 쌤의도가 더 신기한듯 , 쌤의도는 템플릿1만 만들고, 메뉴에 링크 줘서 하는거
 	for (Map<String, String> info : list) {%>
 					
 					<tr>
 						<td><%=info.get("ch") %></td>
 						<td><%=info.get("name") %></td>
 						<td>
-							<a href="/jspTemplete/test01_templete1.jsp?category=<%=info.get("category") %>">
+							<a href="/jspTemplete/test01/test01_templete1.jsp?category=<%=info.get("category") %>">
 								<%=info.get("category") %>
 							</a>	
 						</td>
