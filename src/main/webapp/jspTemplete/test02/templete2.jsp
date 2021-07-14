@@ -67,7 +67,7 @@
 						<%=info.get("singer") %> <br>
 						<small>
 							앨범 <%=info.get("album") %> <br>
-							재생시간 <%=((Integer)info.get("time")) / 60 %>:<%=((Integer)info.get("time")) % 60 %> <br>
+							재생시간 <%=((Integer)info.get("time")) / 60 %> : <%=((Integer)info.get("time")) % 60 %> <br>
 							작곡가 <%=info.get("composer") %> <br>
 							작사가 <%=info.get("lyricist") %>
 						</small>
