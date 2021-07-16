@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>즐겨찾기 목록</title>
   <!-- bootstrap CDN link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -20,31 +20,29 @@
 <%
 	MysqlService mysqlService = MysqlService.getInstance();
 	mysqlService.connection();
-	String query = "select * from `new_user`;";
+	String query = "select * from `website` order by `id` desc;";
 	ResultSet resultSet = mysqlService.select(query);
 %>
 	<div class="container">
 		<table class="table text-center">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>이름</th>
-					<th>생년월일</th>
-					<th>자기소개</th>
-					<th>이메일</th>
+					<th>사이트</th>
+					<th>사이트주소</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 			<% while(resultSet.next()) { %>
 				<tr>
-					<td><%=resultSet.getInt("id") %></td>
 					<td><%=resultSet.getString("name") %></td>
-					<td><%=resultSet.getString("yyyymmdd") %></td>
-					<td><%=resultSet.getString("introduce") %></td>
-					<td><%=resultSet.getString("email") %></td>
 					<td>
-						<a href="/db/ex02_delete?id=<%=resultSet.getInt("id") %>" class="btn btn-danger">삭제</a>
+						<a href="<%=resultSet.getString("url")%>" target="_blank">
+							<%=resultSet.getString("url")%>
+						</a>
+					</td>
+					<td>
+						<a href="/db/test02_delete?id=<%=resultSet.getInt("id")%>" class="btn btn-danger">삭제</a>
 					</td>
 				</tr>
 			<%} %>

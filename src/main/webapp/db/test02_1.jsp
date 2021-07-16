@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.sleep.common.MysqlService" %>
-<%@ page import="java.sql.ResultSet" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,39 +14,13 @@
 
 </head>
 <body>
-<%
-	MysqlService mysqlService = MysqlService.getInstance();
-	mysqlService.connection();
-	String query = "select * from `new_user`;";
-	ResultSet resultSet = mysqlService.select(query);
-%>
-	<div class="container">
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>번호</th>
-					<th>이름</th>
-					<th>생년월일</th>
-					<th>자기소개</th>
-					<th>이메일</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-			<% while(resultSet.next()) { %>
-				<tr>
-					<td><%=resultSet.getInt("id") %></td>
-					<td><%=resultSet.getString("name") %></td>
-					<td><%=resultSet.getString("yyyymmdd") %></td>
-					<td><%=resultSet.getString("introduce") %></td>
-					<td><%=resultSet.getString("email") %></td>
-					<td>
-						<a href="/db/ex02_delete?id=<%=resultSet.getInt("id") %>" class="btn btn-danger">삭제</a>
-					</td>
-				</tr>
-			<%} %>
-			</tbody>
-		</table>
+	<div class="containser">
+		<h3>즐겨찾기 추가</h3>
+		<form method="post" action="/db/test02_insert">
+			<label class="w-25">사이트명: <input type="text" class="form-control" name="name"></label>
+			<label>사이트주소: <input type="text" name="url"></label>
+			<input type="submit" value="추가">
+		</form>
 	</div>
 
 </body>

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sleep.common.MysqlService;
 
-@WebServlet("/db/ex02_delete")
-public class ServletEx02Delete extends HttpServlet{
+@WebServlet("/db/test02_delete")
+public class ServletTest02Delete extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
@@ -20,7 +20,8 @@ public class ServletEx02Delete extends HttpServlet{
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 		
-		String deleteQuery = "delete from `new_user` where `id` = " + id + ";";
+		String deleteQuery = "delete from `website` where `id` = " + id + ";";
+		
 		try {
 			mysqlService.update(deleteQuery);
 		} catch (SQLException e) {
@@ -29,6 +30,6 @@ public class ServletEx02Delete extends HttpServlet{
 		}
 		
 		mysqlService.disconnect();
-		response.sendRedirect("/db/ex02.jsp");
+		response.sendRedirect("/db/test02.jsp");
 	}
 }

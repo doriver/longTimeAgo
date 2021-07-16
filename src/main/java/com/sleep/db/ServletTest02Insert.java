@@ -10,25 +10,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sleep.common.MysqlService;
 
-@WebServlet("/db/ex02_delete")
-public class ServletEx02Delete extends HttpServlet{
+@WebServlet("/db/test02_insert")
+public class ServletTest02Insert extends HttpServlet{
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		String id = request.getParameter("id");
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String name = request.getParameter("name");
+		String url = request.getParameter("url");
 		
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 		
-		String deleteQuery = "delete from `new_user` where `id` = " + id + ";";
+		String insertQuery = "insert into `website`(`name`,`url`,`createdAt`,`updatedAt`)\r\n"
+				+ "value ('" + name + "','" + url + "',now(),now());";
+		
 		try {
-			mysqlService.update(deleteQuery);
+			mysqlService.update(insertQuery);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		mysqlService.disconnect();
-		response.sendRedirect("/db/ex02.jsp");
+		
+		response.sendRedirect("/db/test02.jsp");
 	}
 }
