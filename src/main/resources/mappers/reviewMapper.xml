@@ -23,5 +23,50 @@
         WHERE
         	`id` = #{id} 
     </select>
+    
+    <insert id="insertReview" parameterType="map">
+    	INSERT INTO `new_review`
+    	(
+    	    `storeId`
+        	, `menu`
+        	, `userName`
+        	, `point`
+        	, `review`
+        	, `createdAt`
+        	, `updatedAt`
+    	) VALUES
+    	(
+    		#{storeId} <!-- 다우랑 연관, 위에꺼랑 연결된건 아님 -->
+    		, #{menu}
+        	, #{userName}
+        	, #{point}
+        	, #{review}
+        	, now()
+        	, now()
+    	)
+    </insert>
+    
+    <insert id="insertReivewFromObject" parameterType="com.sleep.spring.lesson03.model.Review">
+ 		INSERT INTO `new_review`
+ 		(
+ 			`storeId`
+ 			, `menu`
+ 			, `userName`
+ 			, `point`
+ 			, `review`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		) VALUES 
+ 		(
+ 			#{storeId}
+ 			, #{menu}
+ 			, #{userName}
+ 			, #{point}
+ 			, #{review}
+ 			, now()
+ 			, now()
+ 		)
+ 	
+ 	</insert>
 
  </mapper>
