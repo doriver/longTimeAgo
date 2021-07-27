@@ -69,9 +69,11 @@
  		ORDER BY `id` DESC
  	</select>
  	
+ 	<!-- 
  	<insert id="insertRealEstateFromObject" 
  	parameterType="com.sleep.spring.lesson03.model.RealEstate">
  	
- 	</insert>
+ 	</insert> -->
+ 	
 
  </mapper>

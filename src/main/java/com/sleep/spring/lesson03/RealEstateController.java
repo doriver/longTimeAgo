@@ -35,16 +35,25 @@ public class RealEstateController {
 		return realestateBO.getRealEstateAsArea(area, price);
 	}
 	
-	@RequestMapping("/test02/1")
-	public String test02_1() {
-		RealEstate realEstate = new RealEstate();
-		realEstate.setRealtorId(3);
-		realEstate.setAddress("푸르지용 리버 303동 1104호");
-		realEstate.setArea(89);
-		realEstate.setType("매매");
-		realEstate.setPrice(1000000);
-		
-		int count = realestateBO
-		
-	}
+//	@RequestMapping("/test02/1")
+//	public String test02_1() {
+//		RealEstate realEstate = new RealEstate();
+//		realEstate.setRealtorId(3);
+//		realEstate.setAddress("푸르지용 리버 303동 1104호");
+//		realEstate.setArea(89);
+//		realEstate.setType("매매");
+//		realEstate.setPrice(1000000);
+//		
+//		int count = realestateBO
+//		
+//	}
+	
+//	@RequestMapping("/test03")
+//	public String test03() {
+//		
+//		int count = realestateBO
+//		
+//		return "update 성공:" + count;
+//	}
+	
 }

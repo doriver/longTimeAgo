@@ -16,5 +16,5 @@ public interface RealEstateDAO {
 			@Param("area") int area,
 			@Param("price") int price);
 	
-	public int insertRealEstateFromObject(RealEstate realEstate);
+//	public int insertRealEstateFromObject(RealEstate realEstate);
 }
