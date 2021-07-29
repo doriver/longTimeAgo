@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,12 +17,12 @@ public class SellerController {
 	@Autowired
 	private SellerBO sellerBO;
 
-	@RequestMapping("/test01/1")
+	@GetMapping("/test01/1")
 	public String addSellerView() {
 		return "lesson04/addSeller";
 	}
 	
-	@RequestMapping("/test01/add_seller")
+	@PostMapping("/test01/add_seller")
 	public String addSeller(
 			@RequestParam("nickname") String nickname
 			, @RequestParam("profileImageUrl") String profileImageUrl
@@ -30,27 +31,20 @@ public class SellerController {
 		
 		int count = sellerBO.addSeller(nickname, profileImageUrl, temperature); 
 				
-		return "lesson04/addSuccess";
-	}
-	
-	@GetMapping("/test01/seller_info")
-	public String getLastSellerInfo(Model model) {
-		
-		Seller seller = sellerBO.getLastSeller();
-		
-		model.addAttribute("result", seller);
-		model.addAttribute("subject", "판매자 정보");
-		
-		return "lesson04/sellerInfo";			
+		return "redirect:/lesson04/test01/seller_info";
 	}
 
 	@GetMapping("/test01/seller_info")
 	public String getSellerInfo(
 			Model model
-			, @RequestParam("id") int id
+			, @RequestParam(value="id", required=false) Integer id
 			) {
-		
-		Seller seller = sellerBO.getSeller(id);
+		Seller seller = null;
+		if (id == null) {
+			seller = sellerBO.getLastSeller();
+		} else {
+			seller = sellerBO.getSeller(id);
+		}
 		
 		model.addAttribute("result", seller);
 		model.addAttribute("subject", "판매자 정보");

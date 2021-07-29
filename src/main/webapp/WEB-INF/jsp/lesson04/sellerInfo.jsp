@@ -18,8 +18,8 @@
 
 	<div class="container">
 		<h3>${subject}</h3>
-		<img src="${result.profileImageUrl}" class="w-50">
-		<h2>${result.nickname}</h2>
+		<img src="${result.profileImageUrl}" width="200">
+		<div class="display-4">${result.nickname}</div>
 		<h3 class="text-warning">${result.temperature}</h3>
 	</div>
 
