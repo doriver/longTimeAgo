@@ -37,5 +37,17 @@
 	<c:forEach var="fruit" items="${fruits }" varStatus="status">
 		<div>${fruit} ::::: ${status.count } ${status.index }</div>
 	</c:forEach>
+	
+	
+	<c:forEach var="user" items="${users }" varStatus="status">
+		<h3>${status.count }번째 사람 정보</h3>
+		<ul>
+			<li>이름 : ${user.name }</li>
+			<li>나이 : ${user.age }</li>
+			<li>취미 : ${user.hobby }</li>
+		</ul>
+	</c:forEach>
+	
+	
 </body>
 </html>
