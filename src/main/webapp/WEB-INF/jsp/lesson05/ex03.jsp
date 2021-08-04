@@ -39,5 +39,20 @@
 		<fmt:formatNumber value="4.123456" pattern="0.0000000000000000" />
 	</div>
 
+	${today }
+	<div>
+		<fmt:formatDate value="${today }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" />
+	</div>
+
+	<div>
+		<fmt:formatDate var="newDate" value="${today }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" />
+		${newDate }
+	</div>
+	
+	<div>
+		<fmt:parseDate value="${newDate }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초" var="date" />
+		${date }		
+	</div>
+	
 </body>
 </html>
