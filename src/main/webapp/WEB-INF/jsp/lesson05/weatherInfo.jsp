@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>기상청</title>
   <!-- bootstrap CDN link -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -18,50 +18,31 @@
 </head>
 <body>
 	<div class="container">
-		<h1>회원정보 리스트</h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>NO</th>
-					<th>이름</th>
-					<th>전화번호</th>
-					<th>국적</th>
-					<th>이메일</th>
-					<th>자기소개</th>
+					<th>날짜</th>
+					<th>날씨</th>
+					<th>기온</th>
+					<th>강수량</th>
+					<th>미세먼지</th>
+					<th>풍속</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="member" items="${members }" varStatus="status">
-				<tr>
-					<td>${status.count }</td>
-					<td>${member.name }</td>
-					<td>
-						<c:choose>
-							<c:when test="${fn:startsWith(member.phoneNumber, '010') }">
-								${member.phoneNumber }
-							</c:when>
-							<c:otherwise>
-								유효하지 않은 전화번호
-							</c:otherwise>
-						</c:choose>
-					</td>
-					<td>${fn:replace(member.nationality, "시대 ","-") }</td>
-					<td><span class="font-weight-bold">${fn:split(member.email, "@")[0] }</span>@${fn:split(member.email, "@")[1] }</td>
-					<td>
-						<c:choose>
-							<c:when test="${fn:length(member.introduce) > 15 }">
-								${fn:substring(member.introduce,0,15) }...
-							</c:when>
-							<c:otherwise>
-								${member.introduce }
-							</c:otherwise>
-						</c:choose>
-					</td>
-					
-				</tr>
+				<c:forEach var="day" items="${weather }">
+					<tr>
+						<td>${day.date }</td>
+						<td>${day.weather }</td>
+						<td>${day.temperatures }</td>
+						<td>${day.precipitation }</td>
+						<td>${day.microDust }</td>
+						<td>${day.windSpeed }</td>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+
 </body>
 </html>
