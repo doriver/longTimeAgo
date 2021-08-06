@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div class="container">
-		<table class="table">
+		<table class="table text-center">
 			<thead>
 				<tr>
 					<th>날짜</th>
@@ -32,12 +32,32 @@
 			<tbody>
 				<c:forEach var="day" items="${weather }">
 					<tr>
-						<td>${day.date }</td>
-						<td>${day.weather }</td>
-						<td>${day.temperatures }</td>
-						<td>${day.precipitation }</td>
+						<td>
+							<fmt:formatDate value="${day.date }" pattern="yyyy년 M월 d일" />
+						</td>
+						<td>
+							<c:choose>
+								<c:when test="${day.weather eq '맑음' }">
+									<img src="">
+								</c:when>
+								<c:when test="${day.weather eq '구름조금' }">
+									<img src="">
+								</c:when>
+								<c:when test="${day.weather eq '흐림' }">
+									<img src="">
+								</c:when>
+								<c:when test="${day.weather eq '비' }">
+									<img src="">
+								</c:when>
+								<c:otherwise>
+									${day.weather }
+								</c:otherwise>
+							</c:choose>
+						</td>
+						<td>${day.temperatures }'C</td>
+						<td>${day.precipitation }mm</td>
 						<td>${day.microDust }</td>
-						<td>${day.windSpeed }</td>
+						<td>${day.windSpeed }km/h</td>
 					</tr>
 				</c:forEach>
 			</tbody>

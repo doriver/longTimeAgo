@@ -42,7 +42,7 @@ public class WeatherController {
 			, @RequestParam("microDust") String microDust
 			, @RequestParam("windSpeed") double windSpeed) {
 		
-		int successIndex = weatherBO.addWeather(weather, temperatures, precipitation, microDust, windSpeed);
+		weatherBO.addWeather(weather, temperatures, precipitation, microDust, windSpeed);
 		
 		return "redirect:/lesson05/test05/weather_info";
 	}
