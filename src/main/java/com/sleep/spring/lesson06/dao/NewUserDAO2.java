@@ -10,5 +10,8 @@ public interface NewUserDAO2 {
 			, @Param("yyyymmdd") String yyyymmdd
 			, @Param("email") String email
 			, @Param("introduce") String introduce);
+	
+	//
+	public int selectCountName(@Param("name") String name);
 
 }

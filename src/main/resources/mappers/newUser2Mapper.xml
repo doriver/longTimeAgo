@@ -26,4 +26,13 @@
  		);
  		
  	</insert>
+ 	
+ 	<select id="selectCountName" resultType="int" parameterType="string">
+		SELECT 
+			COUNT(1)
+		FROM
+			`new_user`
+		WHERE
+			`name` = #{name} 	
+ 	</select>
  	</mapper>

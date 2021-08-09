@@ -38,4 +38,20 @@ public class Lesson06Controller {
 		result.put("result", "success");
 		return result;
 	}
+	
+	@GetMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, String> isDuplication(
+			@RequestParam("name") String name
+			) {
+		Map<String,String> result = new HashMap<>();
+		
+		if (newUserBO.existName(name)) {
+			result.put("isDuplicate", "true");
+		} else {
+			result.put("isDuplicate", "false");
+		}
+		
+		return result;
+	}
 }

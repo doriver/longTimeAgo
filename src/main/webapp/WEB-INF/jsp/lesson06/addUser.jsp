@@ -19,7 +19,14 @@
 	<div class="container">
 		<h1>회원정보 추가</h1>
 		<!-- <form method="post" action="/lesson06/add_user" id="userForm">  -->
-		<input type="text" class="form-control" id="nameInput" name="name" placeholder="이름을 입력하세요">
+		<div class="d-flex">
+			<input type="text" class="form-control" id="nameInput" name="name" placeholder="이름을 입력하세요">
+			<button class="btn btn-info" id="nameCheck">중복체크</button>
+		</div>
+		<div class="text-danger d-none" id="duplicateDiv"><small>중복됨</small></div>
+		<div class="text-success d-none" id="availableDiv"><small>사용가능</small></div>
+		
+		
 		<input type="text" class="form-control" id="yyyymmddInput" name="yyyymmdd" placeholder="생년월일을 입력하세요">
 		<textarea class="form-control" rows="10" id="introduceInput" name="introduce" ></textarea>
 		<input type="text" class="form-control" id="emailInput" name="email" placeholder="이메일을 입력하세요">
@@ -29,30 +36,7 @@
 	
 	<script>
 		$(document).ready(function(){
-		//	$("#addBtn").on("click",function() {
-			/*
-			$("#userForm").on("submit", function() {
-				var name = $("#nameInput").val().trim();
-				var yyyymmdd = $("#yyyymmddInput").val().trim();
-				var introduce = $("#introduceInput").val().trim();
-				
-				if (name == null || name == '') {
-					alert("이름 입력하세요");
-					return false;
-				}
-
-				if (yyyymmdd == null || yyyymmdd == '') {
-					alert("생년월일 입력하세요");
-					return false;
-				}
-				
-				if (introduce == null || introduce == '') {
-					alert("자기소개를 입력하세요");
-					return false;
-				}
-			});
-			*/
-			
+	
 			$("#addBtn").on("click",function() {
 				var name = $("#nameInput").val().trim();
 				var yyyymmdd = $("#yyyymmddInput").val().trim();
@@ -88,8 +72,39 @@
 					}
 				});
 				
+				
+			});
+			
+			$("#nameCheck").on("click", function() {
+				var name = $("#nameInput").val();
+				if (name == null || name == "") {
+					alert("이름 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/lesson06/is_duplication",
+					data:{"name":name},
+					success:function(data) {
+						if (data.isDuplicate == "true") {
+							$("#duplicateDiv").removeClass("d-none");	
+							$("#availableDiv").addClass("d-none");
+						} else {
+							$("#availableDiv").removeClass("d-none");
+							$("#duplicateDiv").addClass("d-none");	
+						}
+						
+					},
+					error:function() {
+						alert("error");
+					}
+				
+				});
+				
 			
 			});
+			
 			
 		});
 	</script>
