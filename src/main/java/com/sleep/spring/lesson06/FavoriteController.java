@@ -53,7 +53,22 @@ public class FavoriteController {
 		
 		model.addAttribute("favoriteList", favoriteList);
 		
-		
 		return "lesson06/favoriteList";
+	}
+	
+	@PostMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, Boolean> isDuplication(
+			@RequestParam("url") String url) {
+		
+		Map<String, Boolean> result = new HashMap<>();
+		
+		if(favoriteBO.existFavoriteUrl(url)) {
+			result.put("isDuplicate", true);
+		} else {
+			result.put("isDuplicate", false);
+		}
+		
+		return result;
 	}
 }

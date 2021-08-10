@@ -24,16 +24,19 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
-					
+					<th></th>
 				</tr>
 			</thead>
 			
 			<tbody>
 				<c:forEach var="favorite" items="${favoriteList }" varStatus="status">
 					<tr>
-						<td>${status.count }</td>
+						<td>${favorite.id }</td>
 						<td>${favorite.name }</td>
 						<td><a href="${favorite.url }">${favorite.url }</a></td>
+						<td>
+							<button class="btn btn-danger deleteBtn" data-favorite-id="${favorite.id }">삭제</button>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -41,6 +44,16 @@
 		</table>
 	
 	</div>
+	
+	<script>
+	$(document).ready(function() {
+		$(".deleteBtn").on("click", function() {
+			var id = $(this).data("favorite-id");
+			alert(id);
+		});
+	});
+	
+	</script>
 
 </body>
 </html>

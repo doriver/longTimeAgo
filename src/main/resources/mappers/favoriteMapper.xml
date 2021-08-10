@@ -33,5 +33,20 @@
  		ORDER BY `id` DESC
  	
  	</select>
+ 	
+ 	<select id="selectCountFavoriteUrl" resultType="int" parameterType="string">
+ 		SELECT
+ 			count(1)
+		FROM
+			`website`
+		WHERE
+			`url` = #{url}
+ 	</select>
+ 	
+ 	<delete id="">
+ 	
+ 	DELETE FROM sandbox WHERE id=5;
  
+ 	</delete>
+ 	
  </mapper>

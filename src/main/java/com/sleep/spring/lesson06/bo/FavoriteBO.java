@@ -20,4 +20,12 @@ public class FavoriteBO {
 	public List<Favorite> getFavoriteList() {
 		return favoriteDAO.selectFavoriteList();
 	}
+	
+	public boolean existFavoriteUrl(String url) {
+		if(favoriteDAO.selectCountFavoriteUrl(url) > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
