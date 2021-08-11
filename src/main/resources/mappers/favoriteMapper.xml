@@ -31,7 +31,6 @@
  		FROM
  			`website`
  		ORDER BY `id` DESC
- 	
  	</select>
  	
  	<select id="selectCountFavoriteUrl" resultType="int" parameterType="string">
@@ -43,10 +42,11 @@
 			`url` = #{url}
  	</select>
  	
- 	<delete id="">
- 	
- 	DELETE FROM sandbox WHERE id=5;
- 
+ 	<delete id="deleteFavorite" parameterType="int">
+	 	DELETE FROM
+	 		`website` 
+	 	WHERE 
+	 		`id` = #{id}
  	</delete>
  	
  </mapper>

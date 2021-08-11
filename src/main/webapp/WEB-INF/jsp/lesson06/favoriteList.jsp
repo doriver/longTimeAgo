@@ -49,7 +49,21 @@
 	$(document).ready(function() {
 		$(".deleteBtn").on("click", function() {
 			var id = $(this).data("favorite-id");
-			alert(id);
+			
+			$.ajax({
+				type:"get",
+				url:"/lesson06/test01/delete_favorite",
+				data:{"id":id},
+				success:function(data) {
+					if (data.result == "success") {
+						alert("삭제되었음");
+						location.reload();
+					}
+				},
+				error:function(e) {
+					alert("error");
+				}
+			});
 		});
 	});
 	
