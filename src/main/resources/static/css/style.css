@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 #wrap{
-	width:800px;
+	width:600px;
 	height:800px;
 }
 
 header {
-	background-color:#ff8080;
+	
 	height:70px;
+	background-color:#ff8080;
 }
 
 
