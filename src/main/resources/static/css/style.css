@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#wrap{
+	width:800px;
+	height:800px;
+}
+
+header {
+	background-color:#ff8080;
+	height:70px;
+}
+
+
+footer {
+	height:50px;
+}
