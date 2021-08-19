@@ -11,16 +11,14 @@ header {
 	background-color:#bbbbbb;
 }
 
-.content {
+.login-box {
+	width:400px;
+	height:400px;
+}
+
+.signup-box {
+	width:400px;
 	height:500px;
-}
-
-.content > .login-box {
-	width:400px;
-}
-
-.content > .signUp-box {
-	width:400px;
 }
 
 footer {

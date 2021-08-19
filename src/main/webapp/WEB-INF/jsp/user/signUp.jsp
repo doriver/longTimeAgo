@@ -21,34 +21,86 @@
 <body>
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
-		<section class="content d-flex justify-content-center">
-			<div class="signUp-box h-100 d-flex justify-content-center align-items-center">
+		<section class="d-flex justify-content-center">
+			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
-					<h1 class="text-center">회원가입</h1>
-					<input type="text" id="loginIdInput" class="form-control mt-3" placeholder="Username">
-					<input type="password" id="passwordInput" class="form-control mt-3" placeholder="패스워드">
-					<input type="password" id="passwordConfirmInput"  class="form-control mt-3" placeholder="비밀번호 확인">
-					<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
-					<input type="text" id="emailInput"  class="form-control mt-3" placeholder="이메일 주소">
-					<button type="submit" id="signUpBtn" class="btn btn-success">가입</button>			
+					<h2 class="text-center">회원가입</h2>
+					<form  id="signupForm">
+						<input type="text" id="loginIdInput" name="loginId" class="form-control mt-3" placeholder="아이디">
+						<input type="password" id="passwordInput" name="password" class="form-control mt-3" placeholder="패스워드">
+						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="패스워드 확인">
+						<small id="errorPassword" class="text-danger d-none">비밀번호가 일치하지 않습니다.</small>
+						<input type="text" id="nameInput" name="name" class="form-control mt-3" placeholder="이름">
+						<input type="text" id="emailInput" name="email" class="form-control mt-3" placeholder="이메일">
+						
+						<button type="submit" id="signUpBtn" class="btn btn-info btn-block mt-3">회원가입</button>
+					</form>
 				</div>
 			</div>
+		
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 
 	</div>
 
 	<script>
-		$(document).ready(function() {
-			$("#signUpBtn").on("click", function() {
-				var loginId = $("#loginIdInput").val();
-				var password = $("#passwordInput").val();
-				var passwordConfirm = $("#passwordConfirmInput").val();
-				var name = $("#nameInput").val().trim();
-				var email = $("#emailInput").val().trim();
+	$(document).ready(function() {
+		$("#signupForm").on("submit", function(e) {
+			
+			e.preventDefault();
+			
+			var loginId = $("#loginIdInput").val();
+			var password = $("#passwordInput").val();
+			var passwordConfirm = $("#passwordConfirmInput").val();
+			var name = $("#nameInput").val().trim();
+			var email = $("#emailInput").val().trim();
+			
+			if(loginId == null || loginId == "") {
+				alert("아이디를 입력하세요");
+				return false;
+			}
+			
+			if(password == null || password == "") {
+				alert("비밀번호를 입력하세요");
+				return false;
+			}
+			
+			if(password != passwordConfirm) {
+				$("#errorPassword").removeClass("d-none");
+				return false;
+			}
+			
+			if(name == null || name == "") {
+				alert("이름을 입력하세요");
+				return false;
+			}
+			
+			if(email == null || email == "") {
+				alert("이메일을 입력하세요");
+				return false;
+			}
+			
+			$.ajax({
+				type:"post",
+				url:"/user/sign_up",
+				data:{"loginId":loginId, "password":password, "name":name, "email":email},
+				success:function(data) {
+					if(data.result == "success") {
+						location.href="/user/signin_view";
+						
+					} else {
+						alert("회원 가입 실패");
+					}
+				}, 
+				error:function(e) {
+					alert("회원 가입 실패");
+				}
+				
 				
 			});
+			
 		});
+	});
 	</script>
 
 </body>
