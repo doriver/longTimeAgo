@@ -25,7 +25,7 @@
 			<div class="signup-box d-flex align-items-center">
 				<div class="w-100">
 					<h2 class="text-center">회원가입</h2>
-					<form  id="signupForm">
+					<form id="signupForm">
 						<input type="text" id="loginIdInput" name="loginId" class="form-control mt-3" placeholder="아이디">
 						<input type="password" id="passwordInput" name="password" class="form-control mt-3" placeholder="패스워드">
 						<input type="password" id="passwordConfirmInput" class="form-control mt-3" placeholder="패스워드 확인">
@@ -37,7 +37,6 @@
 					</form>
 				</div>
 			</div>
-		
 		</section>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 
@@ -86,6 +85,7 @@
 				data:{"loginId":loginId, "password":password, "name":name, "email":email},
 				success:function(data) {
 					if(data.result == "success") {
+						alert("회원가입에 성공했습니다");
 						location.href="/user/signin_view";
 						
 					} else {
