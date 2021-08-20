@@ -4,5 +4,5 @@
 <hr>
 
 <footer class="d-flex align-items-center justify-content-center">
-	copyright~!
+	<small class="">Copyright 2021. Insutgrum all rights reserved.</small>
 </footer>
