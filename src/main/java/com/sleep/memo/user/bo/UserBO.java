@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sleep.memo.common.EncryptUtils;
 import com.sleep.memo.user.dao.UserDAO;
+import com.sleep.memo.user.model.User;
 
 @Service
 public class UserBO {
@@ -25,5 +26,12 @@ public class UserBO {
 		}
 		
 		return userDAO.insertUser(loginId, encryptPassword, name, email);
+	}
+	
+	public User signIn(String loginId, String password) {
+		// 비밀번호를 암호화 하고 DAO 로 전달한다. 
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		return userDAO.selectUserByIdPassword(loginId, encryptPassword);
 	}
 }
