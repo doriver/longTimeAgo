@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     
 <hr>
-
 <footer class="d-flex align-items-center justify-content-center">
-	<small class="">Copyright 2021. Insutgrum all rights reserved.</small>
+	<small class="text-secondary">Copyright 2021. insta all rights reserved.</small>
 </footer>
