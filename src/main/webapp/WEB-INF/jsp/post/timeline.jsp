@@ -13,9 +13,9 @@
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   	
-  	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   	 
-  	 <link rel="stylesheet" href="/static/css/style.css">
+  	<link rel="stylesheet" href="/static/css/style.css">
   
 </head>
 <body>
@@ -23,6 +23,7 @@
 	<div class="container">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		<section class="d-flex justify-content-center">
+			
 			<div class="col-lg-7">
 				
 				<!--  입력 상자  -->
@@ -38,69 +39,77 @@
 				</div>
 				<!--  /입력 상자  -->
 				
-				<!-- 피드 -->
-				
-			<c:forEach  var="postWithComments" items="${postList }">
-				
-				<div class="card border rounded mt-3">
-					<!-- 타이틀 -->
-					<div class="d-flex justify-content-between p-2 border-bottom">
+				<!-- 피드 -->	
+				<c:forEach var="postWithComments" items="${postList }">
+					
+					<div class="card border rounded mt-3">
+						
+						<!-- 타이틀 -->
+						<div class="d-flex justify-content-between p-2 border-bottom">
+							<div>
+								<img src="https://mblogthumb-phinf.pstatic.net/20150203_225/hkjwow_1422965971196EfkMV_JPEG/%C4%AB%C5%E5%C7%C1%BB%E7_31.jpg?type=w210" width="30">
+								${postWithComments.post.userName }
+							</div>
+							<div class="more-icon"><i class="bi bi-three-dots-vertical"></i></div>
+						</div>
+						
+						<!--이미지 -->
 						<div>
-							<img src="https://mblogthumb-phinf.pstatic.net/20150203_225/hkjwow_1422965971196EfkMV_JPEG/%C4%AB%C5%E5%C7%C1%BB%E7_31.jpg?type=w210" width="30">
-							${postWithComments.post.userName }
-						</div>
-						<div class="more-icon"><i class="bi bi-three-dots-vertical"></i></div>
-					</div>
-					<!--이미지 -->
-					<div>
-						<img src="${postWithComments.post.imagePath }" class="w-100">
-					</div>
-					<!-- 좋아요 -->
-					
-					<div class="m-2">
-						<i class="bi bi-heart heart-icon text-dark"></i>
-						<span class="middle-size ml-1"> 좋아요 11개 </span>
-					</div>
-					
-					<!--  content -->
-					<div class="middle-size m-2">
-						<b>${postWithComments.post.userName }</b> ${postWithComments.post.content }
-					</div>
-					
-					<!--  댓글 -->
-					
-					<div class="mt-2">
-						<div class=" border-bottom m-2">
-							<!-- 댓글 타이틀 -->
-							<div class="middle-size">
-								댓글
-							</div>
+							<img src="${postWithComments.post.imagePath }" class="w-100">
 						</div>
 						
-						<!--  댓글  -->
+						<!-- 좋아요 -->
+						<div class="m-2">
+							<a href="#" class="likeBtn" data-post-id="${postWithComments.post.id }">
+							<c:choose>
+								<c:when test="${postWithComments.like }" >
+									<i class="bi bi-heart-fill heart-icon text-danger" data-status="like" id="heartIcon-${postWithComments.post.id }"></i>
+								</c:when>
+								<c:otherwise>
+									<i class="bi bi-heart heart-icon text-dark" id="heartIcon-${postWithComments.post.id }"></i>	
+								</c:otherwise>
+							</c:choose>
+							</a>
+							<span class="middle-size ml-1"> 좋아요 <span id="likeCount-${postWithComments.post.id }" >${postWithComments.likeCount }</span>개 </span>
+						</div>
+						
+						<!--  content -->
 						<div class="middle-size m-2">
-						<c:forEach var="comment" items="${postWithComments.commentList }" >
-							<div class="mt-1">
-								<b>${comment.userName }</b> ${comment.content }
+							<b>${postWithComments.post.userName }</b> ${postWithComments.post.content }
+						</div>
+						
+						<!--  댓글 -->
+						<div class="mt-2">
+						
+							<!-- 댓글 타이틀 -->
+							<div class=" border-bottom m-2">
+								<div class="middle-size">
+									댓글
+								</div>
 							</div>
-						</c:forEach>
+							
+							<!--  댓글  -->
+							<div class="middle-size m-2">
+								<c:forEach var="comment" items="${postWithComments.commentList }" >
+									<div class="mt-1">
+										<b>${comment.userName }</b> ${comment.content }
+									</div>
+								</c:forEach>
+							</div>
+							
+							<!-- 댓글 입력 -->
+							<div class="d-flex mt-2 border-top">
+								<input type="text" class="form-control border-0 " id="commentInput-${postWithComments.post.id }">
+								<button class="btn btn-info ml-2 commentBtn" data-post-id="${postWithComments.post.id }">게시</button>
+							</div>
+							
 						</div>
 						
-						
-						<!-- 댓글 입력 -->
-						<div class="d-flex mt-2 border-top">
-							<input type="text" class="form-control border-0 " id="commentInput-${postWithComments.post.id }">
-							<button class="btn btn-info ml-2 commentBtn" data-post-id="${postWithComments.post.id }">게시</button>
-						</div>
-						
-					
 					</div>
-			
-				</div>
-				
-				
+					
 				</c:forEach>
 				<!-- /피드 -->
+				
 			</div>
 			
 		</section>
@@ -110,6 +119,39 @@
 	
 	</div>
 	<script>
+	$.processLike = function(postId) {
+		$.ajax({
+			type:"get",
+			url:"/post/like",
+			data:{"postId": postId},
+			success:function(data) {
+				// 좋아요
+				if(data.like) {
+					
+					$("#heartIcon-" + postId).removeClass("bi-heart");
+					$("#heartIcon-" + postId).addClass("bi-heart-fill");
+					
+					$("#heartIcon-" + postId).removeClass("text-dark");
+					$("#heartIcon-" + postId).addClass("text-danger");
+				} else { // unlike
+					$("#heartIcon-" + postId).addClass("bi-heart");
+					$("#heartIcon-" + postId).removeClass("bi-heart-fill");
+					
+					$("#heartIcon-" + postId).addClass("text-dark");
+					$("#heartIcon-" + postId).removeClass("text-danger");
+				}
+				$("#likeCount-" + postId).text(data.likeCount);
+				
+				//location.reload();
+					
+			},
+			error:function(e) {
+				alert("error");
+			}
+			
+		});
+	};
+	
 	$(document).ready(function() {
 			$("#uploadBtn").on("click", function() {
 				let content = $("#contentInput").val().trim();
@@ -179,6 +221,24 @@
 					}
 					
 				});
+			});
+			
+			$(".likeBtn").on("click", function(e) {
+				e.preventDefault();
+				var postId = $(this).data("post-id");
+				
+				$.processLike(postId);
+				
+			});
+			
+			$(".imageClick").on("dblclick", function() {
+				var postId = $(this).data("post-id");
+				
+				$.processLike(postId);
+			});
+			
+			$(".moreBtn").on("click", function() {
+				// postId를 모델에 삭제 버튼에 주입한다. 
 			});
 	
 		});			

@@ -54,7 +54,7 @@ public class UserRestController {
 			result.put("is_duplicate", false);
 		}
 		
-//		 result.put("is_duplicate", userBO.isDuplicateId(loginId));
+//		result.put("is_duplicate", userBO.isDuplicateId(loginId));
 		
 		return result;
 		
