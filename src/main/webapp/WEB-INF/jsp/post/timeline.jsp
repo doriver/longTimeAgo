@@ -50,12 +50,16 @@
 								<img src="https://mblogthumb-phinf.pstatic.net/20150203_225/hkjwow_1422965971196EfkMV_JPEG/%C4%AB%C5%E5%C7%C1%BB%E7_31.jpg?type=w210" width="30">
 								${postWithComments.post.userName }
 							</div>
-							<div class="more-icon"><i class="bi bi-three-dots-vertical"></i></div>
+							<div class="more-icon">
+								<a class="text-dark moreBtn" href="#"  data-toggle="modal" data-target="#deleteModal" data-post-id="${postWithComments.post.id }"> 
+									<i class="bi bi-three-dots-vertical"></i> 
+								</a>
+							</div>
 						</div>
 						
 						<!--이미지 -->
 						<div>
-							<img src="${postWithComments.post.imagePath }" class="w-100">
+							<img src="${postWithComments.post.imagePath }" class="w-100 imageClick" data-post-id="${postWithComments.post.id }">
 						</div>
 						
 						<!-- 좋아요 -->
@@ -115,9 +119,24 @@
 		</section>
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
-		
-	
 	</div>
+	
+	<!-- 모달의 a태그에 data-post-id 의 값을 더보기 클릭시마다 바꿔준다.   -->
+	<!-- Modal -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      
+	      <div class="modal-body text-center">
+	        <a href="#" id="deleteBtn" >삭제하기 </a>
+	      </div>
+	  
+	    </div>
+	  </div>
+	</div>
+	
+	
+	
 	<script>
 	$.processLike = function(postId) {
 		$.ajax({
@@ -239,6 +258,23 @@
 			
 			$(".moreBtn").on("click", function() {
 				// postId를 모델에 삭제 버튼에 주입한다. 
+				
+				var postId = $(this).data("post-id");
+								
+				$("#deleteBtn").data("post-id", postId);
+				
+			});
+			
+			
+			<!-- 모달의 a태그의 클릭 이벤트를 만들고, 그 안에서 post-id로 삭제를 진행한다.  -->
+			
+			$("#deleteBtn").on("click", function(e) {
+				e.preventDefault();
+				var postId = $(this).data("post-id");
+				
+				$.ajax({
+					
+				})
 			});
 	
 		});			
