@@ -50,11 +50,15 @@
 								<img src="https://mblogthumb-phinf.pstatic.net/20150203_225/hkjwow_1422965971196EfkMV_JPEG/%C4%AB%C5%E5%C7%C1%BB%E7_31.jpg?type=w210" width="30">
 								${postWithComments.post.userName }
 							</div>
-							<div class="more-icon">
-								<a class="text-dark moreBtn" href="#"  data-toggle="modal" data-target="#deleteModal" data-post-id="${postWithComments.post.id }"> 
-									<i class="bi bi-three-dots-vertical"></i> 
-								</a>
-							</div>
+							
+							<%-- 글 의 userId 와 세션의 userId 가 일치하면 더보기 버튼 노출 --%>
+							<c:if test="${postWithComments.post.userId eq userId}">
+								<div class="more-icon" >
+									<a class="text-dark moreBtn" href="#"  data-toggle="modal" data-target="#deleteModal" data-post-id="${postWithComments.post.id }"> 
+										<i class="bi bi-three-dots-vertical"></i> 
+									</a>
+								</div>
+							</c:if>
 						</div>
 						
 						<!--이미지 -->
@@ -273,7 +277,19 @@
 				var postId = $(this).data("post-id");
 				
 				$.ajax({
-					
+					type:"get",
+					url:"/post/delete",
+					data:{"postId":postId},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					}, 
+					error:function(e) {
+						alert("error");	
+					}
 				})
 			});
 	

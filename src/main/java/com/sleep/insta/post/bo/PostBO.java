@@ -61,4 +61,23 @@ public class PostBO {
 		
 		return postWithCommentsList;
 	}
+	
+	public boolean deletePost(int postId, int userId) {
+
+		Post post = postDAO.selectPost(postId);
+		
+		int count = postDAO.deletePost(postId, userId);
+		
+		if(count != 1) {
+			return false;
+		}
+		
+		FileManagerService fileManagerService = new FileManagerService();
+		fileManagerService.removeFile(post.getImagePath());
+		
+		likeBO.deleteLike(postId);
+		commentBO.deleteComment(postId);
+		
+		return true;
+	}
 }
