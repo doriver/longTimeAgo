@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
-#wrap{
+#wrap {
 	width:1200px;
-	height:800px;
 	margin:auto;
 }
 
@@ -19,6 +18,7 @@ header {
 .signup-box {
 	width:400px;
 	height:500px;
+	
 }
 
 footer {
