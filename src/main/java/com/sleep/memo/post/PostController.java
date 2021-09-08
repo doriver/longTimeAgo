@@ -45,7 +45,7 @@ public class PostController {
 		int currentNextId = 0;
 		int currentPrevId = 0;
 		
-		// 마지막 페이지 가 아니라면 nextId 셋팅
+		// 마지막 페이지 가 아니라면 nextId 셋팅 , 아무것도 없는 상태에선 오류남
 		int listLastIndex = memoList.get(memoList.size() -1).getId();
 		if(!postBO.isLastPage(userId, listLastIndex)) {
 			currentNextId = listLastIndex;
