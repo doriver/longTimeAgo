@@ -28,6 +28,17 @@ https://docs.google.com/spreadsheets/d/1_QpRGkAXKIM6abuEIAi9KrX9PICSgYqVNsSVod2_
 * 위치청보 설정
 ![demo3](demo_gif/위치정보,지역커뮤니티.gif)
 
+* 글쓰기,댓글,좋아요
+![demo4](demo_gif/글쓰기,댓글,좋아요.gif)
+
+* 프로필 설정
+![demo5](demo_gif/프로필.gif)
+
+* 다른사람 개인홈
+![demo6](demo_gif/개인홈들어가기.gif)
+
+* 필터링
+![demo7](demo_gif/필터링.gif)
 
 ### 주요기능
 
