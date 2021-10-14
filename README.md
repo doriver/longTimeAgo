@@ -18,6 +18,17 @@
 https://ovenapp.io/view/LVGYxw82CiHMl1DBVzYCRktvWCK4VJor/
 * DB, URL 설계   
 https://docs.google.com/spreadsheets/d/1_QpRGkAXKIM6abuEIAi9KrX9PICSgYqVNsSVod2_kko/edit#gid=0
+
+### 주요기능
+* 회원가입,로그인,로그아웃
+* 프로필설정과 프로필이미지 반영
+* 위치정보 설정과 그에따른 지역커뮤니티
+* 다른사람의 개인홈 들어가기
+* 이미지 첨부 글쓰기
+* 좋아요
+* 댓글
+* 게시글 필터링
+
 ### 데모
 * 회원가입,로그인,로그아웃
 ![demo1](demo_gif/회원가입,로그인,로그아웃.gif)
@@ -39,8 +50,6 @@ https://docs.google.com/spreadsheets/d/1_QpRGkAXKIM6abuEIAi9KrX9PICSgYqVNsSVod2_
 
 * 필터링
 ![demo7](demo_gif/필터링.gif)
-
-### 주요기능
 
 ### 외부 라이브러리 라이센스
 * Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) 
