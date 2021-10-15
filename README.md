@@ -13,14 +13,17 @@
 * 1인 프로젝트 이자, 처음부터 끝까지 혼자 힘으로 개발한 첫번째 프로젝트이다.
 * 투자(주식)라는 주제에 집중한 로그인기반 SNS
 ### 포트폴리오
+https://docs.google.com/document/d/19I0ABLnCGP0ntyjY6nhs1NNjMKzpT_Krelu_-J9hSSQ/edit?usp=sharing
 ### 설계
 * UI 기획   
 https://ovenapp.io/view/LVGYxw82CiHMl1DBVzYCRktvWCK4VJor/
 * DB, URL 설계   
-https://docs.google.com/spreadsheets/d/1_QpRGkAXKIM6abuEIAi9KrX9PICSgYqVNsSVod2_kko/edit#gid=0
+https://docs.google.com/spreadsheets/d/1_QpRGkAXKIM6abuEIAi9KrX9PICSgYqVNsSVod2_kko/edit?usp=sharing
 
 ### 주요기능
 * 회원가입,로그인,로그아웃
+  * package: 
+  * view: 
 * 프로필설정과 프로필이미지 반영
 * 위치정보 설정과 그에따른 지역커뮤니티
 * 다른사람의 개인홈 들어가기
