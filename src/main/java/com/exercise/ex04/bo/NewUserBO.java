@@ -20,4 +20,8 @@ public class NewUserBO {
 		return newUserDAO.selectLastUser();
 	}
 	
+	public NewUser getUser(int id) {
+		return newUserDAO.selectUser(id);
+	}
+	
 }

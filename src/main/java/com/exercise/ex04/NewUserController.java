@@ -36,9 +36,25 @@ public class NewUserController {
 		return "lesson04/afterAddUser";
 	}
 	
+//	@RequestParam(value="id") int id// 필수 파라미터
+//	@RequestParam(value="id", required=true) int id// 필수 파라미터
+//	@RequestParam(value="id", required=false) Integer id// 비 필수 파라미터
+//	@RequestParam(value="id", defaultValue="1") int id
+	
 	@GetMapping("/user_view")
-	public String getUserView(Model model) { // view 화면에 데이터를 넘겨주는 객체
-		NewUser newUser = newUserBO.getLastUser();
+	public String getUserView(
+			Model model, // view 화면에 데이터를 넘겨주는 객체
+			@RequestParam(value="id", required = false) Integer id) { 
+			// int가 null을 담을수 없다. Integer은 null을 담을수 있음
+		NewUser newUser = new NewUser();
+		
+		if (id == null) {
+			newUser = newUserBO.getLastUser();
+		} else {			
+			newUser = newUserBO.getUser(id);
+		}
+		
+		
 		model.addAttribute("result", newUser);
 		model.addAttribute("subject", "회원정보");
 		

@@ -36,5 +36,20 @@
  		ORDER BY `id` DESC
  		LIMIT 1
  	</select>
+ 	
+ 	<select id="selectUser" resultType="com.exercise.ex04.model.NewUser">
+ 		SELECT
+ 			`id`
+ 			, `name`
+ 			, `yyyymmdd`
+ 			, `email`
+ 			, `introduce`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`new_user`
+ 		WHERE 
+ 			`id` = #{id}
+ 	</select>
  
  </mapper>

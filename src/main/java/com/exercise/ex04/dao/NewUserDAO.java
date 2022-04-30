@@ -15,4 +15,6 @@ public interface NewUserDAO {
 			);
 	
 	public NewUser selectLastUser();
+	
+	public NewUser selectUser(@Param("id") int id);
 }
