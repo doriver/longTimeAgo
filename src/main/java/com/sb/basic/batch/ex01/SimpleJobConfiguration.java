@@ -11,28 +11,28 @@ import org.springframework.context.annotation.Configuration;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
-@RequiredArgsConstructor
-@Configuration // Spring Batch의 모든 Job은 @Configuration으로 등록해서 사용해야 한다.
+//@Slf4j
+//@RequiredArgsConstructor
+//@Configuration // Spring Batch의 모든 Job은 @Configuration으로 등록해서 사용해야 한다.
 public class SimpleJobConfiguration {
 
-	private final JobBuilderFactory jobBuilderFactory;
-    private final StepBuilderFactory stepBuilderFactory;
-
-    @Bean
-    public Job simpleJob() {
-        return jobBuilderFactory.get("simpleJob")
-            .start(simpleStep1())
-            .build();
-    }
-
-    @Bean
-    public Step simpleStep1() {
-        return stepBuilderFactory.get("simpleStep1")
-            .tasklet((contribution, chunkContext) -> {
-                log.info(">>>>> This is simpleStep1");
-                return RepeatStatus.FINISHED;
-            })
-            .build();
-    }
+//	private final JobBuilderFactory jobBuilderFactory;
+//    private final StepBuilderFactory stepBuilderFactory;
+//
+//    @Bean
+//    public Job simpleJob() {
+//        return jobBuilderFactory.get("simpleJob")
+//            .start(simpleStep1())
+//            .build();
+//    }
+//
+//    @Bean
+//    public Step simpleStep1() {
+//        return stepBuilderFactory.get("simpleStep1")
+//            .tasklet((contribution, chunkContext) -> {
+//                log.info(">>>>> This is simpleStep1");
+//                return RepeatStatus.FINISHED;
+//            })
+//            .build();
+//    }
 }
