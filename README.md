@@ -14,7 +14,7 @@ implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
 ### Spring Batch
 * 의존성   
-implementation 'org.springframework.boot:spring-boot-starter-batch'
+implementation 'org.springframework.boot:spring-boot-starter-batch'   
 implementation 'org.springframework.boot:spring-boot-starter-quartz'
 * package : src/main/java/com/sb/basic/batch
 * 일련의 작업을 정해진 로직으로 수행할수 있도록 기본 세팅을 함 
