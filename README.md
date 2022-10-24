@@ -17,4 +17,4 @@ implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 implementation 'org.springframework.boot:spring-boot-starter-batch'   
 implementation 'org.springframework.boot:spring-boot-starter-quartz'
 * package : src/main/java/com/sb/basic/batch
-* 일련의 작업을 정해진 로직으로 수행할수 있도록 기본 세팅을 함 
+* 일련의 작업을 정해진 로직으로 일정한 주기마다 수행할수 있도록 기본 세팅을 함 
