@@ -1,11 +1,13 @@
 package com.web.exercise;
 
 
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +36,24 @@ public class HomeControllerTest {
 		
 		.andExpect(content().string(containsString("Welcome to..."))); // 콘텐츠에 'Welcome to...'가 포함되어야 한다
 	} 
+	
+	@Test
+	public void helloTest() throws Exception{
+		mockMvc.perform(get("/hello"))
+		.andExpect(status().isOk())
+		.andExpect(content().string("hello"));
+	}
+	
+	@Test
+	public void helloDtoTest() throws Exception {
+		String name = "abcd";
+		int amount = 1234;
+		
+		mockMvc.perform(get("/hello/dto").param("name",name).param("amount", String.valueOf(amount)))
+		.andExpect(status().isOk())
+		.andExpect(jsonPath("$.name", is(name)))
+		.andExpect(jsonPath("$.amount", is(amount)));
+					//JSON 응답값을 필드별로 검증할 수 있는 메소드
+	}
 
 }
