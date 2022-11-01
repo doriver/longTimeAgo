@@ -3,6 +3,8 @@ package com.web.exercise.dao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.web.exercise.model.AliveStatus;
+
 @Repository
 public interface StatusDAO {
 
@@ -10,4 +12,6 @@ public interface StatusDAO {
 	
 	public int updateStatus(@Param("name") String name
 			, @Param("alive") boolean alive);
+	
+	public AliveStatus selectStatus(@Param("name") String name);
 }

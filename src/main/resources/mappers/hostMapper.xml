@@ -28,6 +28,15 @@
  		WHERE
  			`name` = #{name}
  	</select>
+	
+	<select id="selectIP" parameterType="String" resultType="String">
+ 		SELECT
+ 			`ip`
+ 		FROM
+ 			`host_list`
+ 		WHERE
+ 			`name` = #{name}
+ 	</select>
  
 	<update id="updateHost" parameterType="map">
 		UPDATE `host_list`

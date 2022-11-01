@@ -21,4 +21,6 @@ public interface HostDAO {
 			, @Param("ip") String ip);
 
 	public int deleteHost(@Param("name") String name);
+	
+	public String selectIP(@Param("name") String name);
 }

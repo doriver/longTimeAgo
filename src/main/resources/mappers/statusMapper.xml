@@ -9,6 +9,9 @@
  		VALUE ( #{name} )
  	</insert>
  	
+	
+ 	
+ 	
  	<update id="updateStatus" parameterType="map">
  		UPDATE `host_status`
  		SET
@@ -20,4 +23,14 @@
  		WHERE
  			`name` = #{name}
  	</update>
+ 	
+ 	
+ 	<select id="selectStatus" parameterType="String" resultType="com.web.exercise.model.AliveStatus">
+ 		SELECT
+ 			*
+ 		FROM
+ 			`host_status`
+ 		WHERE
+ 			`name` = #{name}
+ 	</select>
  </mapper>
