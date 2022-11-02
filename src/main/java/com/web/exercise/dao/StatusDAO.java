@@ -1,5 +1,7 @@
 package com.web.exercise.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +16,8 @@ public interface StatusDAO {
 			, @Param("alive") boolean alive);
 	
 	public AliveStatus selectStatus(@Param("name") String name);
+	
+	public List<AliveStatus> selectAllStatus();
+	
+	public int deleteStatus(@Param("name") String name);
 }

@@ -47,9 +47,30 @@ public class StatusBO {
 	
 	public List<AliveStatus> makeList() {
 		
+		List<List<String>> nameIpList = hostDAO.selectNameIp();
 		
-		List<AliveStatus> statusList = new ArrayList<>();
+		for (int i = 0; i < nameIpList.size(); i++) {
+			
+			boolean isAlive = false;
+			
+			try {
+				
+				/*
+				 * 1. InetAddress.getByName(ip 주소); : 서버 아이피 주소를 지정합니다
+				 * 2. isReachable : 타임아웃 체크로 해당 서버에서 응답이 있을 경우 true 반환, 응답이 없을 경우 false 반환합니다  
+				 */
+				InetAddress pingCheck = InetAddress.getByName(nameIpList.get(i).get(1));
+				isAlive = pingCheck.isReachable(1000);
+//				System.out.println("서버응답 : " + isAlive);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			statusDAO.updateStatus(nameIpList.get(i).get(0), isAlive);
+		}
 		
+		
+		List<AliveStatus> statusList = statusDAO.selectAllStatus();
 		
 		
 		return statusList;

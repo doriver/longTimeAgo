@@ -33,4 +33,19 @@
  		WHERE
  			`name` = #{name}
  	</select>
+ 	
+ 	<select id="selectAllStatus" resultType="com.web.exercise.model.AliveStatus">
+ 		SELECT
+ 			*
+ 		FROM
+ 			`host_status`
+ 	</select>
+ 	
+ 	<delete id="deleteStatus" parameterType="String">
+ 		DELETE FROM `host_status`
+ 		WHERE
+ 			`name` = #{name}
+ 	</delete>
+ 	
+
  </mapper>

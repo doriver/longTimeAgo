@@ -52,4 +52,11 @@
  		WHERE
  			`name` = #{name}
  	</delete>
+ 	
+ 	<select id="selectNameIp" resultType="list">
+ 		SELECT
+ 			`name`, `ip`
+ 		FROM
+ 			`host_list`
+ 	</select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.web.exercise.controller;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,19 @@ public class HostController {
 	
 	@GetMapping("/insert") // 통과
 	@ResponseBody
-	public int inserttt(
+	public String inserttt(
 			@RequestParam("name") String name
 			, @RequestParam("ip") String ip) {
 		
-		statusDAO.insertStatus(name);
-		
-		return hostDAO.insertHost(name, ip);
+		if (hostDAO.insertHost(name, ip) == 1) {
+			
+			statusDAO.insertStatus(name);
+			return "정상적으로 등록 됐습니다";
+			
+		} else {
+			return "등록 실패";
+		}
+
 	}
 	
 	@GetMapping("/select") // 통과
@@ -41,14 +48,30 @@ public class HostController {
 	
 	@GetMapping("/update") // 통과
 	@ResponseBody
-	public int updateee(@RequestParam("name") String name
+	public String updateee(
+			@RequestParam("name") String name
 			, @RequestParam("ip") String ip) {
-		return hostDAO.updateHost(name, ip);
+		
+		if (hostDAO.updateHost(name, ip) == 1) {
+			return name + "의 ip가 변경되었습니다";
+		} else {
+			return "ip변경 실패";
+		}
+		
 	}
 	
 	@GetMapping("/delete")
 	@ResponseBody
-	public int deleteee(@RequestParam("name") String name) {
-		return hostDAO.deleteHost(name);
+	public String deleteee(@RequestParam("name") String name) {
+		
+		if (hostDAO.deleteHost(name) == 1) {
+			
+			statusDAO.deleteStatus(name);
+			return "정상적으로 삭제 됐습니다";
+			
+		} else {
+			return "삭제 실패";
+		}
+		
 	}
 }

@@ -23,11 +23,13 @@ public class StatusController {
 	
 	@GetMapping("/alive") 
 	@ResponseBody
-	public void updateell(@RequestParam("name") String name) {
+	public String updateell(@RequestParam("name") String name) {
 		
-		statusBO.aliveCheck(name);
-//		return statusDAO.updateStatus(name, true);
-//		return statusDAO.updateStatus(name, false);
+		if (statusBO.aliveCheck(name) == 1) {
+			return "alive상태 조회 완료";
+		} else {
+			return "alive상태 조회 실패";
+		}
 	}
 	
 	@GetMapping("/monitor") 
@@ -43,6 +45,6 @@ public class StatusController {
 	@ResponseBody
 	public List<AliveStatus> fullMonitor() {
 		
-		return ;
+		return statusBO.makeList();
 	}
 }
