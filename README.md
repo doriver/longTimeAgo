@@ -4,7 +4,7 @@
 |------|---|---|
 |Post|/hosts|String name, String ip|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "registration": "success" }|
 |실패|{ "registration": "failure" }|
@@ -16,7 +16,7 @@
 |------|---|---|
 |Get|/hosts/{name}|String name|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "name": ~ , "ip": ~ , "createdAt": ~ , "updatedAt": ~ }|
 |실패|null|
@@ -27,7 +27,7 @@
 |------|---|---|
 |Patch|/hosts/{name}|String name, String ip|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "ipChange": true }|
 |실패|{ "ipChange": false }|
@@ -38,7 +38,7 @@
 |------|---|---|
 |Delete|/hosts/{name}|String name|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "hostDelete": true }|
 |실패|{ "hostDelete": false }|
@@ -49,7 +49,7 @@
 |------|---|---|
 |Patch|/statuses/{name}|String name|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "aliveCheck": true }|
 |실패|{ "aliveCheck": false }|
@@ -60,7 +60,7 @@
 |------|---|---|
 |Get|/statuses/{name}|String name|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|{ "name": ~ , "alive": ~ , "lastAliveTime": ~ }|
 |실패|null|
@@ -71,7 +71,7 @@
 |------|---|---|
 |Get|/statuses|null|
 
-|상태|응답값|
+|처리결과|응답값|
 |------|---|
 |성공|[ { "name": ~ , "alive": ~ , "lastAliveTime": ~ }, ... , { "name": ~ , "alive": ~ , "lastAliveTime": ~ } ]|
 ##
