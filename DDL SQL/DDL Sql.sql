@@ -17,6 +17,3 @@ CREATE TABLE host_status (
 DROP TABLE host_list;
 
 DROP TABLE host_status;
-
-INSERT INTO `host_list` (`name`, `ip`, `createdAt`, `updatedAt`)
-VALUE ('bbbnn', '19n', NOW(), NOW());
