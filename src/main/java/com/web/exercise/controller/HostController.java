@@ -35,7 +35,7 @@ public class HostController {
 		
 		Map<String,String> result = new HashMap<>();
 		
-		if (hostDAO.countHost() == 100) {
+		if (hostDAO.countHost() >= 100) {
 			result.put("registration", "close");
 			return result;
 		} 

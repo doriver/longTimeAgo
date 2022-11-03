@@ -26,7 +26,7 @@ public class StatusController {
 	@Autowired
 	private StatusBO statusBO;
 	
-	// alive 상태 체크
+	// 호스트 alive 상태 체크
 	@PatchMapping("/statuses/{name}")
 	public Map<String,Boolean> checkAlive(@PathVariable("name") String name) {
 		
