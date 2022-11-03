@@ -13,7 +13,7 @@
 		)
 	</insert>
 
-	<select id="countHost">
+	<select id="countHost" resultType="int">
 		SELECT 
 			count(*)
 		FROM
@@ -53,7 +53,7 @@
  			`name` = #{name}
  	</delete>
  	
- 	<select id="selectNameIp" resultType="list">
+ 	<select id="selectNameIp" resultType="com.web.exercise.model.HostInfo">
  		SELECT
  			`name`, `ip`
  		FROM

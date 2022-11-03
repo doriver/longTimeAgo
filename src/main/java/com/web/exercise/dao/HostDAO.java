@@ -26,5 +26,5 @@ public interface HostDAO {
 	
 	public String selectIP(@Param("name") String name);
 	
-	public List<List<String>> selectNameIp();
+	public List<HostInfo> selectNameIp();
 }

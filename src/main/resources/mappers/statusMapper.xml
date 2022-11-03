@@ -16,10 +16,15 @@
  		UPDATE `host_status`
  		SET
  			`alive` = #{alive}
- 			<if test="alive == true">
  			,`lastAliveTime` = now()
- 			</if>
- 			
+ 		WHERE
+ 			`name` = #{name}
+ 	</update>
+ 	
+ 	<update id="updateOnlyAlive" parameterType="map">
+ 		UPDATE `host_status`
+ 		SET
+ 			`alive` = #{alive}
  		WHERE
  			`name` = #{name}
  	</update>

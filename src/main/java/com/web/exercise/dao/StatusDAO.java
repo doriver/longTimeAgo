@@ -14,6 +14,9 @@ public interface StatusDAO {
 	
 	public int updateStatus(@Param("name") String name
 			, @Param("alive") boolean alive);
+
+	public int updateOnlyAlive(@Param("name") String name
+			, @Param("alive") boolean alive);
 	
 	public AliveStatus selectStatus(@Param("name") String name);
 	

@@ -1,20 +1,24 @@
 package com.web.exercise.controller;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import org.springframework.web.bind.annotation.RestController;
 
 import com.web.exercise.dao.HostDAO;
 import com.web.exercise.dao.StatusDAO;
 import com.web.exercise.model.HostInfo;
 
-@Controller
+@RestController
 public class HostController {
 
 	@Autowired
@@ -23,54 +27,103 @@ public class HostController {
 	@Autowired
 	private StatusDAO statusDAO;
 	
-	@GetMapping("/insert") // 통과
-	@ResponseBody
-	public String inserttt(
+	// 호스트 등록
+	@PostMapping("/hosts")
+	public Map<String,String> hostRegistration (
 			@RequestParam("name") String name
-			, @RequestParam("ip") String ip) {
+			, @RequestParam("ip") String ip) throws Exception {
 		
-		if (hostDAO.insertHost(name, ip) == 1) {
+		Map<String,String> result = new HashMap<>();
+		
+		if (hostDAO.countHost() == 100) {
+			result.put("registration", "close");
+			return result;
+		} 
+
+		int z = 0;
+		try {
+
+			z = hostDAO.insertHost(name, ip);
+
+			if (z == 1) {
+				
+				statusDAO.insertStatus(name);
+				
+				result.put("registration", "success");
+				return result;
+				
+			} else {
+				result.put("registration", "failure");
+				return result;
+			}
 			
-			statusDAO.insertStatus(name);
-			return "정상적으로 등록 됐습니다";
-			
-		} else {
-			return "등록 실패";
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			result.put("registration", "failure");
+			return result;
+
 		}
+		
 
 	}
 	
-	@GetMapping("/select") // 통과
-	@ResponseBody
-	public HostInfo selecttt(@RequestParam("name") String name) {
+	// 호스트 조회
+	@GetMapping("/hosts/{name}") 
+	public HostInfo hostInfo(@PathVariable("name") String name) {
 		return hostDAO.selectHost(name);
 	}
 	
-	@GetMapping("/update") // 통과
-	@ResponseBody
-	public String updateee(
-			@RequestParam("name") String name
+	// 호스트 수정
+	@PatchMapping("/hosts/{name}") 
+	public Map<String,Boolean> hostUpdate(
+			@PathVariable("name") String name
 			, @RequestParam("ip") String ip) {
 		
-		if (hostDAO.updateHost(name, ip) == 1) {
-			return name + "의 ip가 변경되었습니다";
-		} else {
-			return "ip변경 실패";
-		}
+		Map<String,Boolean> result = new HashMap<>();
 		
+		int z = 0;
+		try {
+
+			z = hostDAO.updateHost(name, ip);
+			if (z == 1) {
+				
+				result.put("ipChange", true);
+				return result;
+				
+			} else {
+				result.put("ipChange", false);
+				return result;
+			}
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+			result.put("ipChange", false);
+			return result;
+
+		}
+	
 	}
 	
-	@GetMapping("/delete")
-	@ResponseBody
-	public String deleteee(@RequestParam("name") String name) {
+	// 호스트 삭제
+	@DeleteMapping("/hosts/{name}") 
+	public Map<String,Boolean> hostDelete(@PathVariable("name") String name) {
+		
+		Map<String,Boolean> result = new HashMap<>();
 		
 		if (hostDAO.deleteHost(name) == 1) {
 			
 			statusDAO.deleteStatus(name);
-			return "정상적으로 삭제 됐습니다";
+			
+			result.put("hostDelete", true);
+			return result;
 			
 		} else {
-			return "삭제 실패";
+			result.put("hostDelete", false);
+			return result;
 		}
 		
 	}

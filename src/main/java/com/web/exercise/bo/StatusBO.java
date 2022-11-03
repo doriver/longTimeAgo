@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.web.exercise.dao.HostDAO;
 import com.web.exercise.dao.StatusDAO;
 import com.web.exercise.model.AliveStatus;
+import com.web.exercise.model.HostInfo;
 
 @Service
 public class StatusBO {
@@ -30,43 +31,43 @@ public class StatusBO {
 		
 		try {
 			
-			/*
-			 * 1. InetAddress.getByName(ip 주소); : 서버 아이피 주소를 지정합니다
-			 * 2. isReachable : 타임아웃 체크로 해당 서버에서 응답이 있을 경우 true 반환, 응답이 없을 경우 false 반환합니다  
-			 */
 			InetAddress pingCheck = InetAddress.getByName(ip);
-			isAlive = pingCheck.isReachable(1000);
-//			System.out.println("서버응답 : " + isAlive);
+			isAlive = pingCheck.isReachable(10);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return statusDAO.updateStatus(name, isAlive);
+		if (isAlive) {
+			return statusDAO.updateStatus(name, isAlive);			
+		} else {
+			return statusDAO.updateOnlyAlive(name, isAlive);
+		}
 	}
 	
 	
 	public List<AliveStatus> makeList() {
 		
-		List<List<String>> nameIpList = hostDAO.selectNameIp();
+		List<HostInfo> hostList = hostDAO.selectNameIp();
 		
-		for (int i = 0; i < nameIpList.size(); i++) {
+		for (int i = 0; i < hostList.size(); i++) {
 			
 			boolean isAlive = false;
 			
 			try {
 				
-				/*
-				 * 1. InetAddress.getByName(ip 주소); : 서버 아이피 주소를 지정합니다
-				 * 2. isReachable : 타임아웃 체크로 해당 서버에서 응답이 있을 경우 true 반환, 응답이 없을 경우 false 반환합니다  
-				 */
-				InetAddress pingCheck = InetAddress.getByName(nameIpList.get(i).get(1));
-				isAlive = pingCheck.isReachable(1000);
-//				System.out.println("서버응답 : " + isAlive);
+				InetAddress pingCheck = InetAddress.getByName(hostList.get(i).getIp());
+				isAlive = pingCheck.isReachable(10);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			statusDAO.updateStatus(nameIpList.get(i).get(0), isAlive);
+			if (isAlive) {
+				statusDAO.updateStatus(hostList.get(i).getName(), isAlive);			
+			} else {
+				statusDAO.updateOnlyAlive(hostList.get(i).getName(), isAlive);
+			}
+
 		}
 		
 		
