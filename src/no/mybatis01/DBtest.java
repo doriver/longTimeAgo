@@ -1,4 +1,4 @@
-package no.mybatis;
+package no.mybatis01;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
