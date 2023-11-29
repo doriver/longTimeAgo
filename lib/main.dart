@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: Image.asset('assets/image.png')
+      home: Center(
+        child: Container( width: 50, height: 50, color: Colors.blue)
+      )
     );
   }
 }
