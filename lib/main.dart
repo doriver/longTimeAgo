@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
-        body: Row(
+        body: Column(
           children: [
             Icon(Icons.star),
             Icon(Icons.star),
