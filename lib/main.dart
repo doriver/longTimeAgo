@@ -10,8 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: Center(
-        child: Container( width: 50, height: 50, color: Colors.blue)
+      home: Scaffold(
+        appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
+        body: Container(),
+        bottomNavigationBar: BottomAppBar( color: Colors.red , height: 30.0),
       )
     );
   }
