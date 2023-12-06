@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         body:  Align(
           alignment: Alignment.bottomLeft,
           child: Container( 
-            width: 50, height: 50, color:Colors.yellow
+            width: double.infinity, height: 50, color:Colors.yellow
           ),
         ),
         bottomNavigationBar: BottomAppBar( color: Colors.white, height: 60.0),
