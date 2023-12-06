@@ -12,30 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
-        body:  
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('My Flutter App'),
-              Text('안녕'),
-              Icon(Icons.star),
-              Icon(Icons.star),
-            ]
-          ),
-        bottomNavigationBar: 
-          BottomAppBar( 
-            color: Colors.white, 
-            height: 60.0,
-            child: 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(Icons.phone),
-                  Icon(Icons.message),
-                  Icon(Icons.contact_page)
-                ]
-              ),
-          ),
+        body:  Container( 
+          width: 50, height: 50, color:Colors.black
+        ),
+        bottomNavigationBar: BottomAppBar( color: Colors.white, height: 60.0),
       )
     );
   }
