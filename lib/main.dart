@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
         body: SizedBox(
           child: 
-            Icon( Icons.star, color: Colors.yellow, size: 100 )
+            ElevatedButton( onPressed: (){}, style: ButtonStyle(), child:Text('글자'))
         )
       )
     );
