@@ -12,7 +12,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor:Colors.blue ),
-        body: aaa 
+        body: ListView(
+          children: [
+            Text('data'),
+            Text('data'),
+            Text('data9'),
+            Text('data'),
+            Text('data1'),
+            Text('data'),
+            Text('data3'),
+            Text('data'),
+            Text('data2'),
+            Text('data'),
+          ]
+        ) 
       )
     );
   }
