@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
-        body: SizedBox(
-          child: 
-            IconButton( onPressed: (){}, style: ButtonStyle(), icon: Icon(Icons.star))
-        )
+        body: SizedBox()
       )
     );
   }
