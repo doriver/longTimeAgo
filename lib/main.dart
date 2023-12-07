@@ -12,13 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
-        body:  Align(
-          alignment: Alignment.bottomLeft,
-          child: Container( 
-            width: double.infinity, height: 50, color:Colors.yellow
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar( color: Colors.white, height: 60.0),
+        body: SizedBox(
+          child: Text('안녕하세요'), 
+        )
       )
     );
   }
