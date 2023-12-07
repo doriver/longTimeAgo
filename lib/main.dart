@@ -11,25 +11,48 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( backgroundColor:Colors.blue ),
+        appBar: AppBar( leading: Icon(Icons.ad_units), title: Text('MyApp'), backgroundColor:Colors.blue ),
         body: ListView( // 메모리 절약 기능( 스크롤에 해당하지 않는부분은 메모리에서 삭제함 )
+          padding: EdgeInsets.all(10), 
           children: [
-            Text('data'),
-            Text('data'),
-            Text('data9'),
-            Text('data'),
-            Text('data1'),
-            Text('data'),
-            Text('data3'),
-            Text('data'),
-            Text('data2'),
-            Text('data'),
+            Row(
+              children: [
+                Icon(Icons.account_balance_outlined),
+                Text('고대 그리스 로마')
+              ]
+            ),
+            Row(
+              children: [
+                Icon(Icons.adb_rounded),
+                Text('벌레')
+              ]
+            ),
+            Row(
+              children: [
+                Icon(Icons.wifi_calling_3_rounded),
+                Text('와이파이 통신')
+              ]
+            ),
           ]
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: buttomIcon,
         ) 
       )
     );
   }
 }
+
+var buttomIcon = Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+    Icon(Icons.access_time),
+    Icon(Icons.accessibility_outlined),
+    Icon(Icons.add_alert_rounded)
+  ]
+);
+
+
 // 안에있는 data가 변할때는 변수에 담으면 안되고, 커스텀위젯 사용해야함
 // 단축키 : stless + tab키  >>>  아래 커스텀위젯 기본 세팅 생김
 class MyWidget extends StatelessWidget { // 커스텀 위젯이 되려면 class안에 변수, 함수 많이 넣어야하고 그래서 extends StatelessWidget을 해주는거
