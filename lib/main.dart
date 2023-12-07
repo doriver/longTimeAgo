@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
+        appBar: AppBar( backgroundColor: Colors.blue, leading: Icon(Icons.star) ),
         body: SizedBox()
       )
     );
