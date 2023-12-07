@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( backgroundColor: Colors.blue, leading: Icon(Icons.star) ),
+        appBar: AppBar( backgroundColor: Colors.blue, leading: Icon(Icons.star), title: Text('dddd') ),
         body: SizedBox()
       )
     );
