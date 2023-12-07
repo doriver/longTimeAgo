@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor:Colors.blue ),
-        body: SizedBox(
-          child: Text('data'),
-        )
+        body: MyWidget() 
       )
     );
   }
@@ -25,6 +23,8 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SizedBox(
+          child: Text('data'),
+        );
   }
 }  
