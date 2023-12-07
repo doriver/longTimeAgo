@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar( backgroundColor:Colors.blue ),
-        body: ListView(
+        body: ListView( // 메모리 절약 기능( 스크롤에 해당하지 않는부분은 메모리에서 삭제함 )
           children: [
             Text('data'),
             Text('data'),
