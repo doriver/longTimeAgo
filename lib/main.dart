@@ -13,23 +13,28 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar( leading: Icon(Icons.ad_units), title: Text('MyApp'), backgroundColor:Colors.blue ),
         body: ListView( // 메모리 절약 기능( 스크롤에 해당하지 않는부분은 메모리에서 삭제함 )
-          padding: EdgeInsets.all(10), 
+          padding: EdgeInsets.all(20), 
           children: [
             Row(
               children: [
                 Icon(Icons.account_balance_outlined),
+                SizedBox(width: 10),
                 Text('고대 그리스 로마')
               ]
             ),
+            SizedBox(height: 15),
             Row(
               children: [
                 Icon(Icons.adb_rounded),
+                SizedBox(width: 10),
                 Text('벌레')
               ]
             ),
+            SizedBox(height: 15),
             Row(
               children: [
                 Icon(Icons.wifi_calling_3_rounded),
+                SizedBox(width: 10),
                 Text('와이파이 통신')
               ]
             ),
