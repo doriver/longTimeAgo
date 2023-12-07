@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar( backgroundColor: Colors.blue, title: Text('My Flutter App') ),
         body: SizedBox(
-          child: Text('안녕하세요'), 
+          child: 
+            Text('안녕하세요', 
+                 style: TextStyle( color: Colors.red, fontSize: 30, fontWeight: FontWeight.bold)
+                ),
         )
       )
     );
