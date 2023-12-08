@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlobalLoaderOverlay(
-      child: GetMaterialApp(),
+      child: GetMaterialApp(
+        home: Text('hello world')
+      )
     );
   }
 }
