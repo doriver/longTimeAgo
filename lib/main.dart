@@ -19,3 +19,21 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class MyFirstScreen extends StatelessWidget {
+  const MyFirstScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class MySecondScreen extends StatelessWidget {
+  const MySecondScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
