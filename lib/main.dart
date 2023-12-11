@@ -30,7 +30,7 @@ class MyFirstScreen extends StatelessWidget {
       appBar: AppBar( title: Text('First Screen') ),
       body: ElevatedButton( 
         onPressed: () {
-          Navigator.push(
+          Navigator.push( // Navigator.push를 사용하여 두 번째 화면으로 전환
             context, 
             MaterialPageRoute(builder: (context) => MySecondScreen())
           );
@@ -48,7 +48,9 @@ class MySecondScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar( title: Text('Second Screen') ),
       body: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context); // Navigator.pop을 사용하여 현재 화면을 닫고 이전 화면으로 돌아감
+        },
         child: Text('Go Back to First Screen'))
     );
   }
