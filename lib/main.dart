@@ -25,7 +25,14 @@ class MyFirstScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar( title: Text('First Screen') ),
+      body: ElevatedButton( 
+        onPressed: () {
+          
+        }, 
+        child: Text('Go to Second Screen')),
+    );
   }
 }
 
