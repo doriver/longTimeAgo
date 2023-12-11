@@ -33,7 +33,7 @@ class MyFirstScreen extends StatelessWidget {
           Navigator.push( // Navigator.push를 사용하여 두 번째 화면으로 전환
             context, 
             MaterialPageRoute(builder: (context) => MySecondScreen())
-          );
+          ); // MaterialPageRoute 클래스: 화면 전환에 사용되는 표준 페이지 전환을 제공하는 클래스
         }, 
         child: Text('Go to Second Screen')),
     );
