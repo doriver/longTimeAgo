@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GlobalLoaderOverlay(
       child: GetMaterialApp(
-        home: Text('hello world')
+        home: MyFirstScreen()
+        // Text('hello world')
       )
     );
   }
@@ -29,7 +30,10 @@ class MyFirstScreen extends StatelessWidget {
       appBar: AppBar( title: Text('First Screen') ),
       body: ElevatedButton( 
         onPressed: () {
-          
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) => MySecondScreen())
+          );
         }, 
         child: Text('Go to Second Screen')),
     );
@@ -41,6 +45,11 @@ class MySecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar( title: Text('Second Screen') ),
+      body: ElevatedButton(
+        onPressed: () {},
+        child: Text('Go Back to First Screen'))
+    );
   }
 }
