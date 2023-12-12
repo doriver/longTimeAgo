@@ -1,4 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_excercise_01/screen/manager/screen_manager.dart';
+import 'package:flutter_excercise_01/screen/second_screen.dart';
 
 class FirstScreen extends StatefulWidget {
   static String screenName = "FirstScreen";
@@ -12,7 +14,13 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar( title: Text('123First Screen') ),
+      body: ElevatedButton( 
+        onPressed: () {
+          ScreenManager.openScreen(SecondScreen.screenName);
+        }, 
+        child: Text('Go to Second Screen')),
+    );
   }
 }

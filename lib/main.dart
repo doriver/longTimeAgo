@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_excercise_01/screen/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GlobalLoaderOverlay(
       child: GetMaterialApp(
-        home: MyFirstScreen()
+        home: LoginScreen()
         // Text('hello world')
       )
     );
