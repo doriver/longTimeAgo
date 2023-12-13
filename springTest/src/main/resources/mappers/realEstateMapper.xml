@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.sleep.spring.lesson03.dao.RealEstateDAO">
+ 	<!-- 데이터 가져오기 -->
+    <select id="selectRealEstate1" 
+    	resultType="com.sleep.spring.lesson03.model.RealEstate"
+    	parameterType="int">
+        <!--  -->
+        SELECT 
+        	`id`
+        	, `realtorId`
+        	, `address`
+        	, `area`
+        	, `type`
+        	, `price`
+        	, `rentPrice`
+        	, `createdAt`
+        	, `updatedAt`
+        FROM 
+        	`real_estate`
+        WHERE
+        	`id` = #{id} <!-- dao로 부터 전달받은값 -->
+    </select>
+    
+    <select id="selectRealEstate2" 
+  	 	resultType="com.sleep.spring.lesson03.model.RealEstate"
+  	 	parameterType="int">
+       
+        SELECT 
+        	`id`
+        	, `realtorId`
+        	, `address`
+        	, `area`
+        	, `type`
+        	, `price`
+        	, `rentPrice`
+        	, `createdAt`
+        	, `updatedAt`
+        FROM 
+        	`real_estate`
+        WHERE
+        	<![CDATA[
+        		`rentPrice`  <  #{rent} 
+        	]]>
+    </select>
+    
+   	<select id="selectRealEstateAsArea" 
+   	parameterType="map" 
+   	resultType="com.sleep.spring.lesson03.model.RealEstate">
+ 		SELECT 
+ 			`id` 
+ 			, `realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `rentPrice`
+ 			, `createdAt`
+ 			, `updatedAt` 
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+ 			`type` = '매매'
+ 			AND `area` <![CDATA[>=]]>  #{area}
+ 			AND `price` <![CDATA[<=]]>  #{price}
+ 		ORDER BY `id` DESC
+ 	</select>
+ 	
+ 	<!-- 
+ 	<insert id="insertRealEstateFromObject" 
+ 	parameterType="com.sleep.spring.lesson03.model.RealEstate">
+ 	
+ 	</insert> -->
+ 	
+
+ </mapper>
