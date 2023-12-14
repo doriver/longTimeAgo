@@ -62,19 +62,19 @@ class _DetailState extends State<Detail> {
             children: [
               Column(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.call)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.call, color: Colors.blue)),
                   Text('Contact')
                 ]
               ),
               Column(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.near_me)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.near_me, color: Colors.blue)),
                   Text('Route')
                 ]
               ),
               Column(
                 children: [
-                  IconButton(onPressed: (){}, icon: Icon(Icons.save)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.save, color: Colors.blue)),
                   Text('Save')
                 ]
               )
