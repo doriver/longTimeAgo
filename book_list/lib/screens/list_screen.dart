@@ -1,6 +1,7 @@
 import 'package:book_list/models/book.dart';
 import 'package:book_list/repositories/book_repository.dart';
 import 'package:book_list/screens/detail_screen.dart';
+import 'package:book_list/screens/detail_screen_stateful.dart';
 import 'package:flutter/material.dart';
 
 class ListScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class BookTitle extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => DetailScreen(book: book)
+            builder: (context) => Detail(book: book)
           )
         );
       }
