@@ -17,11 +17,22 @@ class DetailScreen extends StatelessWidget {
               height: 500.0, // 이미지의 높이
               fit: BoxFit.cover, // 이미지가 주어진 너비 및 높이에 맞도록 조절됩니다.
           ),
+          SizedBox(height: 15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                book.title,
-                style: TextStyle( fontSize: 23, fontWeight: FontWeight.bold )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    book.title,
+                    style: TextStyle( fontSize: 23, fontWeight: FontWeight.bold )
+                  ),
+                  Text(
+                    book.subtitle,
+                    style: TextStyle(fontSize: 15, color: Colors.grey)
+                  )
+                ]
               ),
               Icon(
                 Icons.star,
@@ -29,14 +40,7 @@ class DetailScreen extends StatelessWidget {
               )
             ]
           ),
-          Row(
-            children: [
-              Text(
-                book.subtitle,
-                style: TextStyle(fontSize: 18, color: Colors.grey)
-              )
-            ]
-          ),
+          SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -60,8 +64,9 @@ class DetailScreen extends StatelessWidget {
               )
             ]
           ),
-          Text(
-            book.description
+          Container(
+            padding: EdgeInsets.all(15),
+            child: Text(book.description)
           )
         ],
       )
