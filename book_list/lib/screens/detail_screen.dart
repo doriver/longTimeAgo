@@ -34,10 +34,7 @@ class DetailScreen extends StatelessWidget {
                   )
                 ]
               ),
-              Icon(
-                Icons.star,
-                color: Colors.red
-              )
+              IconButton(onPressed: (){}, icon: Icon(Icons.star, color: Colors.red))
             ]
           ),
           SizedBox(height: 15),
@@ -46,19 +43,19 @@ class DetailScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Icon(Icons.call),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.call)),
                   Text('Contact')
                 ]
               ),
               Column(
                 children: [
-                  Icon(Icons.near_me),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.near_me)),
                   Text('Route')
                 ]
               ),
               Column(
                 children: [
-                  Icon(Icons.save),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.save)),
                   Text('Save')
                 ]
               )
