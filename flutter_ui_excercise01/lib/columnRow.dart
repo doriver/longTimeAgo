@@ -6,15 +6,19 @@ class ColumnRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: 500,
-        height: 600,
-        color: Colors.grey,
-        child: Column(
+      body: Column(
           // mainAxisAlignment: MainAxisAlignment.end,
           // crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10)),
+                Container(height: 100,width: 50, color:Colors.blue, margin: EdgeInsets.all(10))    
+              ]
+            ),
             Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10)),
             Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10)),
             Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10)),
@@ -23,7 +27,6 @@ class ColumnRow extends StatelessWidget {
             Container(height: 50,width: 50, color:Colors.blue, margin: EdgeInsets.all(10))
           ]
         ),
-      )
     );
   }
 }
