@@ -7,10 +7,10 @@ class Detail extends StatefulWidget {
   Detail({required this.book});
 
   @override
-  State<Detail> createState() => _detailState();
+  State<Detail> createState() => _DetailState();
 }
 
-class _detailState extends State<Detail> {
+class _DetailState extends State<Detail> {
 
   bool isRed = false;
   
