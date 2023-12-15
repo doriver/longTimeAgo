@@ -3,26 +3,26 @@ import 'package:shopping_mall/models/product.dart';
 class ProductRepository {
   final List<Product> _dummyProducts = [
     Product(
-      productName: "의자",
+      productName: "수호신",
       imagePath:
-          "https://m.comfpro.co.kr/web/product/medium/202111/ab99bbc3f5c49160158c29d07ce660bf.jpg",
+          "https://cdn.aitimes.kr/news/photo/202303/27617_41603_044.jpg",
       price: "3,000 원"
     ),
     Product(
-      productName: "냉장고",
-      imagePath: "https://t1.daumcdn.net/cfile/tistory/99E36F345E9E595031",
+      productName: "천국의 계단",
+      imagePath: "https://png.pngtree.com/thumb_back/fh260/background/20230316/pngtree-heaven-gate-ladder-background-image_1948845.jpg",
       price: "5,000 원"
     ),
     Product(
-      productName: "자동차",
+      productName: "오리",
       imagePath:
-          "https://img.hankyung.com/photo/202203/0ad0cd5a2df34e36cd91fd08dcbb46c2.jpg",
+          "https://images.pexels.com/photos/16756656/pexels-photo-16756656.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       price: "6,000 원"
     ),
     Product(
-      productName: "에어컨",
+      productName: "무지개 반도체",
       imagePath:
-          "https://reviewpro.co.kr/wp-content/uploads/2020/08/%EC%97%90%EC%96%B4%EC%BB%A8%EB%A9%94%EC%9D%B8.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmaIWPqzF72_fIIbKDxzHStwbNRGK4K3iO-w&usqp=CAU",
       price: "7,000 원"
     )
   ];

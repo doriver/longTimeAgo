@@ -17,8 +17,11 @@ class ProductWidget extends StatelessWidget {
               aspectRatio: 2/1, 
               child: Image.network( item.imagePath ?? "" )
             ),
-            SizedBox(height: 20),
-            Text(item.productName ?? ""),
+            SizedBox(height: 10),
+            Text(
+              item.productName ?? "",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+            ),
             Text(item.price ?? "")
           ]
         )

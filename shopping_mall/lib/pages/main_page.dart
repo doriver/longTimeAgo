@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shopping_mall/common/bar.dart';
 import 'package:shopping_mall/component/product_widget.dart';
 import 'package:shopping_mall/models/product.dart';
+import 'package:shopping_mall/pages/member_list_page.dart';
 import 'package:shopping_mall/repositories/product_repository.dart';
 
 class MainPage extends StatelessWidget {
@@ -10,9 +13,10 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("쇼핑몰"), backgroundColor: Colors.green),
-      body: Column(
+      appBar: Bar.topIcon("쇼핑몰"),
+      body: ListView(
         children: [
+          const SizedBox( height: 30 ),
           Row(
             children: [
               ProductWidget(item: products[0]),
@@ -20,7 +24,7 @@ class MainPage extends StatelessWidget {
               ProductWidget(item: products[1])
             ]
           ),
-          const SizedBox( height: 50 ),
+          const SizedBox( height: 20 ),
           Row(
             children: [
               ProductWidget(item: products[2]),
@@ -28,9 +32,30 @@ class MainPage extends StatelessWidget {
               ProductWidget(item: products[3])
             ]
           ),
-          const SizedBox( height: 30 ),
-          Text("회원목록")
+          const SizedBox( height: 40 ),
+          ListTile(
+            title: Text("회원목록", textAlign: TextAlign.center),
+            onTap: (){
+              Get.to(() => MemberListPage());
+            }
+          ),
+          ListTile(
+            title: Text("매장목록", textAlign: TextAlign.center),
+            onTap: (){}
+          ),
+          ListTile(
+            title: Text("마이페이지", textAlign: TextAlign.center),
+            onTap: (){}
+          ),
+          ListTile(
+            title: Text("상품목록", textAlign: TextAlign.center),
+            onTap: (){}
+          ),
+          const SizedBox( height: 50 ),
         ]
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Bar.buttomIcon
       )
     );
   }
