@@ -4,6 +4,7 @@ import 'package:shopping_mall/common/bar.dart';
 import 'package:shopping_mall/component/product_widget.dart';
 import 'package:shopping_mall/models/product.dart';
 import 'package:shopping_mall/pages/member_list_page.dart';
+import 'package:shopping_mall/pages/my_page.dart';
 import 'package:shopping_mall/pages/store_page_list.dart';
 import 'package:shopping_mall/repositories/product_repository.dart';
 
@@ -49,7 +50,7 @@ class MainPage extends StatelessWidget {
           ListTile(
             title: Text("마이페이지", textAlign: TextAlign.center),
             onTap: (){
-              // Get.to();
+              Get.to(() => MyPage());
             }
           ),
           ListTile(
