@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:shopping_mall/models/product.dart';
+import 'package:shopping_mall/pages/product_detail_page.dart';
 
 class ProductWidget extends StatelessWidget {
   final Product item;
@@ -10,6 +12,9 @@ class ProductWidget extends StatelessWidget {
     return Expanded(
       child: GestureDetector(
         onTap: (){
+          Get.to(
+            () => ProductDetailPage(productName: item.productName ?? "", imagePath: item.imagePath ?? "", price: item.price ?? "")
+          );
         },
         child: Column(
           children: [
