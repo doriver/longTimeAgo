@@ -28,7 +28,7 @@ class _MyPageState extends State<MyPage> {
     String jsonString = await rootBundle.loadString("assets/json/user_json.json"); // json파일에서 json을 string 형태로 받아옴
 
     Map<String, dynamic> mapData = json.decode(jsonString); // jsonString 을 Map 형태로
-    User user = User.genByMap(mapData);
+    User user = User.genByMap(mapData); // map 을 user 객체로
     setState(() {
       myInfo = user;
     });

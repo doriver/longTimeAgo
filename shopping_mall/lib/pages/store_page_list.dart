@@ -4,7 +4,7 @@ import 'package:shopping_mall/common/bar.dart';
 class StoreListPage extends StatelessWidget {
   StoreListPage({super.key});
 
-  final List<String> storeList = ['여의도', '김포', '부산'];
+  final List<String> storeList = ['여의도 지점', '김포 지점', '부산 지점'];
   
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,10 @@ class StoreListPage extends StatelessWidget {
             crossAxisSpacing: 20.0, // 크로스 축(수평 방향) 간격
             childAspectRatio: 1.0, // 각 그리드 항목의 가로/세로 비율
           ),
-          itemCount: storeList.length, 
+          itemCount: 100, 
           itemBuilder: (context, index){
+            String store = storeList[index % 3];
+
             return Stack(
               children: [
                 Positioned(
@@ -29,7 +31,7 @@ class StoreListPage extends StatelessWidget {
                     height: double.infinity,
                     padding: EdgeInsets.all(30),
                     color: Colors.yellow,
-                    child: Text(storeList[index])
+                    child: Text(store)
                   )
                 ),
                 Positioned(
@@ -40,7 +42,7 @@ class StoreListPage extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     color: Colors.blue,
                     child: Text(
-                      index.toString(),
+                      (index+1).toString(),
                       style: TextStyle(color: Colors.white))
                   )
                 )
