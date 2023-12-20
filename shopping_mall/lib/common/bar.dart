@@ -17,6 +17,41 @@ class Bar {
   );
 
   static AppBar topIcon(String title) {
-     return AppBar(leading: Icon(Icons.ad_units), title: Text("$title"), backgroundColor: Colors.green);
-  }  
+     return AppBar(title: Text("$title"), backgroundColor: Colors.green);
+  }  // leading: Icon(Icons.ad_units), 리딩이 있으면 drawer 안먹히는듯
+
+  static Drawer drawer() {
+    return Drawer(
+      child: ListView(
+        children: [
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.green,
+            ),
+            child: Text(
+              'Drawer 헤더',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            title: Text('메뉴 항목 1'),
+            onTap: () {
+              // 메뉴 항목 1을 탭했을 때 수행할 동작
+            
+            },
+          ),
+          ListTile(
+            title: Text('메뉴 항목 2'),
+            onTap: () {
+              // 메뉴 항목 2을 탭했을 때 수행할 동작
+              
+            },
+          ),
+        ]
+      )
+    );
+  }
 }

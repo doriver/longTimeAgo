@@ -12,6 +12,7 @@ class MemberListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon('회원목록'),
+      drawer: Bar.drawer(),
       body: ListView.builder(
         itemCount: 99,
         itemBuilder: (context, index) { 

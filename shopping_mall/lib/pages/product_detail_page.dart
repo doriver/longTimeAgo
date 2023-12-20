@@ -16,6 +16,7 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon('$productName 상세페이지'),
+      drawer: Bar.drawer(),
       body: SingleChildScrollView(
         child: 
           Container(

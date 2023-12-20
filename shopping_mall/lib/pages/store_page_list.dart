@@ -10,6 +10,7 @@ class StoreListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon('매장목록'),
+      drawer: Bar.drawer(),
       body: Container(
         padding: EdgeInsets.all(30),
         child: GridView.builder(

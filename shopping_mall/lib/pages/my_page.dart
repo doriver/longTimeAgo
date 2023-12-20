@@ -37,6 +37,7 @@ class _MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon('마이페이지'),
+      drawer: Bar.drawer(),
       body: myInfo == null ? Text("myInfo is null !!")
           : Container(
                 width: double.infinity,

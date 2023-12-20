@@ -17,6 +17,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon("쇼핑몰"),
+      drawer: Bar.drawer(),
       body: ListView(
         children: [
           const SizedBox( height: 30 ),

@@ -21,6 +21,7 @@ class _FruitsDetailState extends State<FruitsDetail> {
 
     return Scaffold(
       appBar: Bar.topIcon('$productName 페이지'),
+      drawer: Bar.drawer(),
       body: ListView(
         children: [
           Stack(

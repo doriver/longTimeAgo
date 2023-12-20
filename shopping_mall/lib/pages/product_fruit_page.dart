@@ -18,6 +18,7 @@ class _ProductFruitPageState extends State<ProductFruitPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Bar.topIcon('상품(과일)들'),
+      drawer: Bar.drawer(),
       body: Column(
         children: [
           ViewChangeButton(
