@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_mall/common/bar.dart';
+import 'package:shopping_mall/component/fruits_grid.dart';
+import 'package:shopping_mall/component/fruits_list.dart';
 import 'package:shopping_mall/component/view_change_button.dart';
 
 class ProductFruitPage extends StatefulWidget {
@@ -10,7 +12,7 @@ class ProductFruitPage extends StatefulWidget {
 }
 
 class _ProductFruitPageState extends State<ProductFruitPage> {
-  bool isTogglePressed = true;
+  String viewStyle = 'grid';
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +20,15 @@ class _ProductFruitPageState extends State<ProductFruitPage> {
       appBar: Bar.topIcon('상품(과일)들'),
       body: Column(
         children: [
-          Text('그리드뷰, 리스트뷰'),
           ViewChangeButton(
-            onToggle: () {
-
+            click: (value) {
+              setState(() {
+                viewStyle = value;
+              });
             }
           ),
           Expanded(
-            child: isTogglePressed ? Text('그리드뷰') : Text('리스트뷰')
+            child: viewStyle == 'grid' ? FruitsGrid() : FruitsList()
           )
         ]
       ),

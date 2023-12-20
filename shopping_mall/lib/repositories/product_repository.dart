@@ -30,4 +30,41 @@ class ProductRepository {
   List<Product> getProducts() {
     return _dummyProducts;
   }
+
+  final List<Product> _fruitList = [
+    Product(
+      productName: "바나나",
+      imagePath: "assets/images/banana.png",
+      price: "4,500원",
+    ),
+    Product(
+      productName: "포도",
+      imagePath: "assets/images/grape.png",
+      price: "12,000원",
+    ),
+    Product(
+      productName: "복숭아",
+      imagePath: "assets/images/peach.png",
+      price: "8,500원",
+    ),
+    Product(
+      productName: "딸기",
+      imagePath: "assets/images/strawberry.png",
+      price: "28,500원",
+    ),
+    Product(
+      productName: "수박",
+      imagePath: "assets/images/watermelon.png",
+      price: "19,000원",
+    ),
+    Product(
+      productName: "오렌지",
+      imagePath: "assets/images/orange.png",
+      price: "9,000원",
+    ),
+  ];
+
+  List<Product> getFruits() {
+    return _fruitList;
+  }
 }
