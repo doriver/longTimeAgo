@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_excercise_01/pages/form_screen.dart';
 import 'package:flutter_excercise_01/pages/main_page.dart';
 import 'package:get/get.dart';
 import 'package:loader_overlay/loader_overlay.dart';
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage()
+      home: FormScreen(title: 'title')
+      // MainPage()
     );
   }
 }
