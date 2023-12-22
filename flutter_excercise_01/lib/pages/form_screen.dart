@@ -21,7 +21,8 @@ class _FormScreenState extends State<FormScreen> {
       appBar: AppBar(title: Text(widget.title)),
       body: Form(
         key: _formKey,
-        child: Padding(
+        child: Container(
+          width: 300,
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
