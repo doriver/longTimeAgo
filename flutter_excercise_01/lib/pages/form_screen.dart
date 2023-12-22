@@ -24,10 +24,57 @@ class _FormScreenState extends State<FormScreen> {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(),
+              TextFormField(
+                onSaved: (value) {
+                  setState(() {
+                    _id = value as String;
+                  });
+                },
+                decoration: InputDecoration(labelText: 'ID'),
+                validator: (value) {
+                  if ( value == null || value.isEmpty ) {
+                    return 'please enter some text';
+                  }
+                  return null;
+                },
+                // autovalidateMode: AutovalidateMode.always
+              ),
               SizedBox(height: 30),
-              TextFormField()
+              TextFormField(
+                onSaved: (value) {
+                  setState(() {
+                     _password = value as String;
+                  });
+                },
+                decoration: InputDecoration(labelText: 'PassWord'),
+                validator: (value) {
+                  if ( value == null || value.isEmpty ) {
+                    return 'please enter some text';
+                  }
+                  if ( value.toString().length < 8 ) {
+                    return '8자 이상 입력';
+                  }
+                  return null;
+                },
+                obscureText: true // 문자를 '*'로 표시( 비밀번호 숨김 )
+                // autovalidateMode: AutovalidateMode.always
+              ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) { // Form의 모든 TextFormField의 유효성 검사(validator)를 수행
+                    _formKey.currentState!.save(); // TextFormField에 정의된 onSaved 콜백을 호출
+
+                    // 임시로 입력값 출력되도록
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(_id + '/' + _password)),
+                    );
+                  } 
+                },
+                child: Text('제출')
+              )
             ]
           )
         )
