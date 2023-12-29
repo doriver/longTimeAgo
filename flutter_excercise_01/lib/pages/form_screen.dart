@@ -28,12 +28,12 @@ class _FormScreenState extends State<FormScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
+                decoration: InputDecoration(labelText: 'ID'),
                 onSaved: (value) {
                   setState(() {
                     _id = value as String;
                   });
                 },
-                decoration: InputDecoration(labelText: 'ID'),
                 validator: (value) {
                   if ( value == null || value.isEmpty ) {
                     return 'please enter some text';
@@ -44,12 +44,12 @@ class _FormScreenState extends State<FormScreen> {
               ),
               SizedBox(height: 30),
               TextFormField(
+                decoration: InputDecoration(labelText: 'PassWord'),
                 onSaved: (value) {
                   setState(() {
                      _password = value as String;
                   });
                 },
-                decoration: InputDecoration(labelText: 'PassWord'),
                 validator: (value) {
                   if ( value == null || value.isEmpty ) {
                     return 'please enter some text';
