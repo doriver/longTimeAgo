@@ -1,2 +1,2 @@
 # shopping_mall프로젝트
-![쇼핑몰ui](demo_gif/shoppingMall.gif)
+<img src="demo_gif/shoppingMall.gif" alt="쇼핑몰ui" width="300" height="500">
