@@ -8,5 +8,14 @@ commit과정을 보면 소스와 해당 내용을 볼수 있음
 # book_list프로젝트
 <img src="demo_gif/bookList.gif" alt="책리스트ui" width="300" height="500">
 
+# flutter_excercise_01 프로젝트
+<img src="demo_gif/excercise01.gif" alt="팝업,validation" width="300" height="500">
+
+### validation 기본form 
+Form( ) , TextFormField( )
+
+### 팝업기능
+showDialog( ) , AlertDialog( )
+
 # shopping_mall프로젝트
 <img src="demo_gif/shoppingMall.gif" alt="쇼핑몰ui" width="300" height="500">
