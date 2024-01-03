@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_excercise_01/common/pop_up.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key, required this.title});
@@ -75,7 +76,9 @@ class _FormScreenState extends State<FormScreen> {
                   } 
                 },
                 child: Text('제출')
-              )
+              ),
+              SizedBox(height: 10),
+              PopUp.popButton(context, '팝업버튼')
             ]
           )
         )
