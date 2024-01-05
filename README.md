@@ -15,6 +15,10 @@ Form( ) , TextFormField( ) <br/>
 showDialog( ) , AlertDialog( ) <br/>
 <img src="demo_gif/excercise01.gif" alt="팝업,validation" width="300" height="500">
 
-# shopping_mall프로젝트
+# shopping_mall 프로젝트
 ui를 연습한 간단한 프로젝트 <br/>
 <img src="demo_gif/shoppingMall.gif" alt="쇼핑몰ui" width="300" height="500">
+
+# flutter_ui_excercise01 프로젝트
+Column(), Row() 위젯의 배치를 연습해봄
+
