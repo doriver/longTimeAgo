@@ -16,8 +16,7 @@
 		${goods }<br>
 		${goods.id }. ${goods.title } 
 	</h4>
-		
-	</div>
+
 	<div>
 		${goods.price }
 	</div>

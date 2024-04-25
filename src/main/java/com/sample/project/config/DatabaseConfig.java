@@ -11,7 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages="com.sample.project.*")  // interface(mapper)가 있는 패키지 경로
+@MapperScan(basePackages="com.sample.project.dao")  // interface(mapper)가 있는 패키지 경로
 public class DatabaseConfig {
 	
     @Bean
