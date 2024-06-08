@@ -29,9 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
   // formLogin() 사용하면, 폼 기반 로그인을 활성화         
             .formLogin()
-//                .loginPage("/plogin")  // 시발 왜 이거 없애니까 되냐 , 로그인 페이지의 경로를 설정합니다.
+                .loginPage("/plogin")  // 시발 왜 이거 없애니까 되냐 , 로그인 페이지의 경로를 설정합니다.
                 .permitAll()  // 로그인 페이지는 인증 없이 접근을 허용합니다.
-//                .defaultSuccessUrl("/suc") // 로그인 성공 시 리디렉션할 URL
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/suc") // 로그인 성공 시 리디렉션할 URL
                 .and()
    // logout() 메서드를 사용하면 Spring Security가 자동으로 로그아웃 기능을 처리해줌       
             .logout()
