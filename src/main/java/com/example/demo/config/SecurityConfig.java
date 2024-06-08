@@ -12,7 +12,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// 여기서는 메모리 내 인증을 사용하여 'user'라는 사용자와 'password'라는 비밀번호를 가진 사용자를 추가
+		// 여기서는 메모리 내 인증을 사용하여 'user'라는 사용자와 '1234'라는 비밀번호를 가진 사용자를 추가
 		 auth.inMemoryAuthentication()
          .withUser("user")
          .password("{noop}1234")  // {noop}은 비밀번호 암호화를 사용하지 않음을 나타냅니다.
@@ -26,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/").permitAll()  // '/' 경로는 인증 없이 접근을 허용합니다.
                 .anyRequest().authenticated()  // 나머지 모든 요청은 인증을 요구합니다.
+         //     인증 필요한 경로에, 인증없이 접근했을경우 > 로그인페이지로 연결됨
                 .and()
   // formLogin() 사용하면, 폼 기반 로그인을 활성화         
             .formLogin()
@@ -36,14 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
    // logout() 메서드를 사용하면 Spring Security가 자동으로 로그아웃 기능을 처리해줌       
             .logout()
-//            	.logoutUrl("/custom-logout")  // 로그아웃 URL을 변경합니다.
-//            	.logoutSuccessUrl("/login?logout")  // 로그아웃 성공 후 리디렉션할 URL을 설정
+            	.logoutUrl("/custom-logout")  // 로그아웃 URL을 변경합니다.
+            	.logoutSuccessUrl("/")  // 로그아웃 성공 후 리디렉션할 URL을 설정
                 .permitAll();  // 로그아웃도 인증 없이 접근을 허용합니다.
 	}
 /*
  * 로그아웃 처리
  * 사용자의 세션을 무효화
  * 인증된 사용자의 보안 컨텍스트를 지웁니다.
- * 기본적으로 로그아웃 성공 후 루트 경로(/)로 리디렉션
  */
 }
