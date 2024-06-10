@@ -10,13 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity // Spring Security를 활성화함 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// 여기서는 메모리 내 인증을 사용하여 'user'라는 사용자와 '1234'라는 비밀번호를 가진 사용자를 추가
+		/*
+		 * 메모리 내 인증을 사용 + 'user'라는 사용자와 '1234'라는 비밀번호를 가진 사용자 추가
+		 */
 		 auth.inMemoryAuthentication()
          .withUser("user")
          .password("{noop}1234")  // {noop}은 비밀번호 암호화를 사용하지 않음을 나타냅니다.
          .roles("USER");  // 사용자의 역할을 설정합니다.
+		
 	}
 
 	@Override
@@ -33,12 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/plogin")  // 시발 왜 이거 없애니까 되냐 , 로그인 페이지의 경로를 설정합니다.
                 .permitAll()  // 로그인 페이지는 인증 없이 접근을 허용합니다.
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/suc") // 로그인 성공 시 리디렉션할 URL
+                .defaultSuccessUrl("/suc") // 로그인 성공 시 리디렉션할 URL 
                 .and()
    // logout() 메서드를 사용하면 Spring Security가 자동으로 로그아웃 기능을 처리해줌       
             .logout()
             	.logoutUrl("/custom-logout")  // 로그아웃 URL을 변경합니다.
             	.logoutSuccessUrl("/")  // 로그아웃 성공 후 리디렉션할 URL을 설정
+            	.deleteCookies("JSESSIONID")
                 .permitAll();  // 로그아웃도 인증 없이 접근을 허용합니다.
 	}
 /*
