@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.web.exercise.dao.StatusDAO">
+ 	<insert id="insertStatus" parameterType="String">
+ 		INSERT INTO `host_status` (`name`)
+ 		VALUE ( #{name} )
+ 	</insert>
+ 	
+	
+ 	
+ 	
+ 	<update id="updateStatus" parameterType="map">
+ 		UPDATE `host_status`
+ 		SET
+ 			`alive` = #{alive}
+ 			,`lastAliveTime` = now()
+ 		WHERE
+ 			`name` = #{name}
+ 	</update>
+ 	
+ 	<update id="updateOnlyAlive" parameterType="map">
+ 		UPDATE `host_status`
+ 		SET
+ 			`alive` = #{alive}
+ 		WHERE
+ 			`name` = #{name}
+ 	</update>
+ 	
+ 	
+ 	<select id="selectStatus" parameterType="String" resultType="com.web.exercise.model.AliveStatus">
+ 		SELECT
+ 			*
+ 		FROM
+ 			`host_status`
+ 		WHERE
+ 			`name` = #{name}
+ 	</select>
+ 	
+ 	<select id="selectAllStatus" resultType="com.web.exercise.model.AliveStatus">
+ 		SELECT
+ 			*
+ 		FROM
+ 			`host_status`
+ 	</select>
+ 	
+ 	<delete id="deleteStatus" parameterType="String">
+ 		DELETE FROM `host_status`
+ 		WHERE
+ 			`name` = #{name}
+ 	</delete>
+ 	
+
+ </mapper>

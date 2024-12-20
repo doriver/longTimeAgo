@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.web.exercise.dao.HostDAO">
+
+	<insert id="insertHost" parameterType="map">
+		INSERT INTO
+			`host_list`	(`name`, `ip`, `createdAt`, `updatedAt`)
+		VALUE (
+			#{name}, #{ip}, now(), now()		
+		)
+	</insert>
+
+	<select id="countHost" resultType="int">
+		SELECT 
+			count(*)
+		FROM
+			`host_list`
+	</select>	
+ 
+ 	<select id="selectHost" parameterType="String" resultType="com.web.exercise.model.HostInfo">
+ 		SELECT
+ 			*
+ 		FROM
+ 			`host_list`
+ 		WHERE
+ 			`name` = #{name}
+ 	</select>
+	
+	<select id="selectIP" parameterType="String" resultType="String">
+ 		SELECT
+ 			`ip`
+ 		FROM
+ 			`host_list`
+ 		WHERE
+ 			`name` = #{name}
+ 	</select>
+ 
+	<update id="updateHost" parameterType="map">
+		UPDATE `host_list`
+		SET
+			`ip` = #{ip},
+			`updatedAt` = now()
+		WHERE 
+			`name` = #{name}	
+	</update>
+ 	
+ 	<delete id="deleteHost" parameterType="String">
+ 		DELETE FROM `host_list`
+ 		WHERE
+ 			`name` = #{name}
+ 	</delete>
+ 	
+ 	<select id="selectNameIp" resultType="com.web.exercise.model.HostInfo">
+ 		SELECT
+ 			`name`, `ip`
+ 		FROM
+ 			`host_list`
+ 	</select>
+</mapper>
