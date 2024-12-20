@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.sleep.spring.lesson02.dao.UsedGoodsDAO">
+ 	<!-- usedgoods 데이터 모두 가져오기 -->
+    <select id="selectUsedGoodsList" resultType="com.sleep.spring.lesson02.model.UsedGoods">
+        SELECT 
+        	`id`
+        	, `title`
+        	, `price`
+        	, `description`
+        	, `picture`
+        	, `sellerId`
+        	, `createdAt`
+        	, `updatedAt`
+        FROM 
+        	`used_goods` 
+    </select>
+
+ </mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>TestProject</display-name>
+
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>com.sleep.test.HelloController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletEx01</servlet-name>
+		<servlet-class>com.sleep.servlet.ServletEx01</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletEx01</servlet-name>
+		<url-pattern>/servlet/ex01</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ServletTest01</servlet-name>
+		<servlet-class>com.sleep.servlet.ServletTest01</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTest01</servlet-name>
+		<url-pattern>/servlet/test01</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServletTest02</servlet-name>
+		<servlet-class>com.sleep.servlet.ServletTest02</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletTest02</servlet-name>
+		<url-pattern>/servlet/test02</url-pattern>
+	</servlet-mapping>
+	
+	<!-- filter 추가 -->
+	<!-- 이걸 @WebServlet("/*")로 대신함
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>com.sleep.common.CharacterEncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	 -->
+</web-app>
