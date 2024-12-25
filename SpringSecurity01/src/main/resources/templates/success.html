@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+	<h2>로그인 성공했음</h2>
+	<h3 th:text="${age}"></h3>
+	<a href="/">Home으로</a>
+	<form th:action="@{/custom-logout}" method="post">
+	        <button type="submit">Logout</button>
+	</form>
+<!-- 
+logout() 메서드를 사용하면 Spring Security가 자동으로 로그아웃 기능을 처리해줌
+기본적으로 post 요청을 /logout URL로 보내면 사용자를 로그아웃시킴
+ -->
+	<script>
+		$("#bbb").click( 
+			function(){
+				
+				$.ajax({
+					type:"post",
+					url:"/logout",
+					
+					success:function(res){
+						console.log(res); // 콘솔에선 JSON.stringify() 안해도 정상출력됨
+						// alert(res); // 이렇게하면  [object Object] 나옴, 아래처럼 JSON.stringify() 해줘야 정상 출력
+						alert(JSON.stringify(res));
+					},
+					error:function(xhr, status, error){
+						alert(xhr.responseText);
+					}
+				});
+			}		
+		);
+	</script>
+</body>
+</html>
